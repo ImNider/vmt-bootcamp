@@ -1,0 +1,83 @@
+USE TalentInsights;
+
+CREATE TABLE Collaborators (
+    Id            UNIQUEIDENTIFIER   NOT NULL DEFAULT NEWID(),
+    FullName      NVARCHAR(150)      NOT NULL,
+    GitlabProfile NVARCHAR(255)      NULL,
+    Position      NVARCHAR(100)      NOT NULL,
+    JoinedAt      DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
+    IsActive      BIT                NOT NULL DEFAULT 1,
+    CreatedAt     DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
+    UpdatedAt     DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
+
+    CONSTRAINT PK_Collaborators PRIMARY KEY (Id)
+);
+GO
+
+INSERT INTO Collaborators(FullName, Position)
+VALUES
+	('Neider', 'Desarrollador');
+GO
+
+SELECT * FROM Collaborators;
+
+CREATE TABLE Posts (
+    Id             UNIQUEIDENTIFIER   NOT NULL DEFAULT NEWID(),
+    CollaboratorId UNIQUEIDENTIFIER   NOT NULL,
+    Title          NVARCHAR(300)      NOT NULL,
+    Content        NVARCHAR(MAX)      NOT NULL,
+    CreatedAt      DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
+    UpdatedAt      DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
+    DeletedAt      DATETIME2          NULL,        -- Soft delete
+
+    CONSTRAINT PK_Posts PRIMARY KEY (Id),
+    CONSTRAINT FK_Posts_Collaborator FOREIGN KEY (CollaboratorId)
+        REFERENCES Collaborators (Id)
+);
+GO
+
+INSERT INTO Posts(CollaboratorId, Title, Content)
+VALUES
+	('9DC06F0D-A913-4C4B-88EF-73BD555C4305', 'Beneficios de LinkedIn', '¡Que bueno es LinkedIn!'),
+	('9DC06F0D-A913-4C4B-88EF-73BD555C4305', 'SQL Server', '¡Viva SQL!');
+GO
+
+SELECT * FROM Posts;
+
+CREATE TABLE Tags(
+	TagId UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+	Name NVARCHAR(50) NOT NULL,
+	CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+	DeletedAt DATETIME2 NULL,
+);
+GO
+
+INSERT INTO Tags(Name)
+VALUES
+	('Fashion'),
+	('Food'),
+	('Crypto');
+GO
+
+SELECT * FROM Tags;
+
+CREATE TABLE PostsTags (
+	PostId UNIQUEIDENTIFIER NOT NULL REFERENCES Posts(Id),
+	TagId UNIQUEIDENTIFIER NOT NULL REFERENCES Tags(TagId) ON DELETE CASCADE,
+	CONSTRAINT PK_PostsTags_PostId_TagId PRIMARY KEY (PostId, TagId)
+);
+GO
+
+DECLARE @PostSQLId UNIQUEIDENTIFIER = '119DAE52-2414-48E1-9E30-7C3ED9E1D119';
+DECLARE @PostLinkedinjId UNIQUEIDENTIFIER = '12585567-6AD7-4D93-B393-FF6E33CF2B07';
+DECLARE @TagFoodId UNIQUEIDENTIFIER = 'EA06848C-0D7A-4A9E-9ABC-17552C4E90A4';
+DECLARE @TagCrypoId UNIQUEIDENTIFIER = '6996DCFF-B5E4-4E07-84AE-63B8BFD04FAF';
+DECLARE @TagFashionId UNIQUEIDENTIFIER = 'E770B3C4-E918-48E1-BC04-A432775A0657';
+
+INSERT INTO PostsTags(PostId, TagId)
+VALUES
+	(@PostSQLId, @TagFoodId),
+	(@PostSQLId, @TagCrypoId);
+GO
+
+SELECT * FROM PostsTags;
