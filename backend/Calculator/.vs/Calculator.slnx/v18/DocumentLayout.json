@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\",
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EDBF4A23-771D-45E0-92DC-172C5BC11908}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\calculator\\calculator.startup\\classes\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EDBF4A23-771D-45E0-92DC-172C5BC11908}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\classes\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\administrator\\documents\\temp\\workspace\\bootcamp\\backend\\calculator\\calculator.startup\\classes\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\classes\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EDBF4A23-771D-45E0-92DC-172C5BC11908}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\calculator\\calculator.startup\\interfaces\\iapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EDBF4A23-771D-45E0-92DC-172C5BC11908}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\interfaces\\iapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\administrator\\documents\\temp\\workspace\\bootcamp\\backend\\calculator\\calculator.startup\\models\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\models\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EDBF4A23-771D-45E0-92DC-172C5BC11908}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\calculator\\calculator.startup\\models\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EDBF4A23-771D-45E0-92DC-172C5BC11908}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\models\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\administrator\\documents\\temp\\workspace\\bootcamp\\backend\\calculator\\calculator.startup\\interfaces\\iapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\interfaces\\iapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EDBF4A23-771D-45E0-92DC-172C5BC11908}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\calculator\\calculator.startup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EDBF4A23-771D-45E0-92DC-172C5BC11908}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\administrator\\documents\\temp\\workspace\\bootcamp\\backend\\calculator\\calculator.startup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +30,11 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Option.cs",
-              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Models\\Option.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Models\\Option.cs",
               "RelativeDocumentMoniker": "Calculator.Startup\\Models\\Option.cs",
-              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Models\\Option.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Models\\Option.cs",
               "RelativeToolTip": "Calculator.Startup\\Models\\Option.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -43,11 +43,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "IApplication.cs",
-              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Interfaces\\IApplication.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Interfaces\\IApplication.cs",
               "RelativeDocumentMoniker": "Calculator.Startup\\Interfaces\\IApplication.cs",
-              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Interfaces\\IApplication.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Interfaces\\IApplication.cs",
               "RelativeToolTip": "Calculator.Startup\\Interfaces\\IApplication.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -58,11 +58,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Application.cs",
-              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Classes\\Application.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Classes\\Application.cs",
               "RelativeDocumentMoniker": "Calculator.Startup\\Classes\\Application.cs",
-              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Classes\\Application.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Classes\\Application.cs",
               "RelativeToolTip": "Calculator.Startup\\Classes\\Application.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAA6wF4AAABkAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAHoAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T17:07:01.946Z",
               "EditorCaption": ""
@@ -71,14 +71,13 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Program.cs",
               "RelativeDocumentMoniker": "Calculator.Startup\\Program.cs",
-              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Program.cs",
               "RelativeToolTip": "Calculator.Startup\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T17:05:12.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T17:05:12.635Z"
             }
           ]
         }

@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "HRnvM3MVZr8=",
+  "dgSpecHash": "aqgLezWVphw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Calculator.Startup.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Calculator.Startup.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\viamatica\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512"
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.14\\microsoft.windowsdesktop.app.ref.9.0.14.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.14\\microsoft.netcore.app.ref.9.0.14.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.14\\microsoft.aspnetcore.app.ref.9.0.14.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.14\\microsoft.netcore.app.host.win-x64.9.0.14.nupkg.sha512"
   ],
   "logs": []
 }

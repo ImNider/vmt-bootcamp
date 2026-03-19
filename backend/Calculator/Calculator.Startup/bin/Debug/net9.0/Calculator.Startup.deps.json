@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Calculator.Startup/1.0.0": {
+        "runtime": {
+          "Calculator.Startup.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Calculator.Startup/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

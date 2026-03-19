@@ -1,0 +1,15 @@
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\bin\Debug\net9.0\Calculator.Startup.exe
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\bin\Debug\net9.0\Calculator.Startup.deps.json
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\bin\Debug\net9.0\Calculator.Startup.runtimeconfig.json
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\bin\Debug\net9.0\Calculator.Startup.dll
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\bin\Debug\net9.0\Calculator.Startup.pdb
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\obj\Debug\net9.0\Calculator.Startup.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\obj\Debug\net9.0\Calculator.Startup.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\obj\Debug\net9.0\Calculator.Startup.AssemblyInfo.cs
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\obj\Debug\net9.0\Calculator.Startup.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\obj\Debug\net9.0\Calculator.Startup.sourcelink.json
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\obj\Debug\net9.0\Calculator.Startup.dll
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\obj\Debug\net9.0\refint\Calculator.Startup.dll
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\obj\Debug\net9.0\Calculator.Startup.pdb
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\obj\Debug\net9.0\Calculator.Startup.genruntimeconfig.cache
+C:\Users\Administrator\Documents\Temp\workspace\bootcamp\backend\Calculator\Calculator.Startup\obj\Debug\net9.0\ref\Calculator.Startup.dll

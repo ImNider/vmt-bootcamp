@@ -1,12 +1,87 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\administrator\\documents\\temp\\workspace\\bootcamp\\backend\\calculator\\calculator.startup\\classes\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\classes\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\administrator\\documents\\temp\\workspace\\bootcamp\\backend\\calculator\\calculator.startup\\interfaces\\iapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\interfaces\\iapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\administrator\\documents\\temp\\workspace\\bootcamp\\backend\\calculator\\calculator.startup\\models\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\models\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|c:\\users\\administrator\\documents\\temp\\workspace\\bootcamp\\backend\\calculator\\calculator.startup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23F5F5E5-B43A-E798-235D-DEBE91BDA475}|Calculator.Startup\\Calculator.Startup.csproj|solutionrelative:calculator.startup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Option.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Models\\Option.cs",
+              "RelativeDocumentMoniker": "Calculator.Startup\\Models\\Option.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Models\\Option.cs",
+              "RelativeToolTip": "Calculator.Startup\\Models\\Option.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T17:18:51.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IApplication.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Interfaces\\IApplication.cs",
+              "RelativeDocumentMoniker": "Calculator.Startup\\Interfaces\\IApplication.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Interfaces\\IApplication.cs",
+              "RelativeToolTip": "Calculator.Startup\\Interfaces\\IApplication.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T17:07:37.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Application.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Classes\\Application.cs",
+              "RelativeDocumentMoniker": "Calculator.Startup\\Classes\\Application.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Classes\\Application.cs",
+              "RelativeToolTip": "Calculator.Startup\\Classes\\Application.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAFIAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T17:07:01.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Program.cs",
+              "RelativeDocumentMoniker": "Calculator.Startup\\Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Program.cs",
+              "RelativeToolTip": "Calculator.Startup\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T17:05:12.635Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
