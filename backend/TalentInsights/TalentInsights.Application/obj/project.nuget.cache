@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "W6KS+gV0olY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Application\\TalentInsights.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\viamatica\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.14\\microsoft.aspnetcore.openapi.9.0.14.nupkg.sha512",
+    "C:\\Users\\viamatica\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\viamatica\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512"
+  ],
+  "logs": []
+}

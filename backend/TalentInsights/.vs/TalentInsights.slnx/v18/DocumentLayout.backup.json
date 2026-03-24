@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{74C16413-CC42-4A88-88CA-B20FE1E5939A}|TalentInsights.WebApp\\TalentInsights.WebApp.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\talentinsights\\talentinsights.webapp\\controllers\\collaboratorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74C16413-CC42-4A88-88CA-B20FE1E5939A}|TalentInsights.WebApp\\TalentInsights.WebApp.csproj|solutionrelative:talentinsights.webapp\\controllers\\collaboratorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C571F47-08DC-49A4-85BD-BF22711BC8F2}|TalentInsights.Application\\TalentInsights.Application.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\talentinsights\\talentinsights.application\\models\\request\\collaborator\\createcollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C571F47-08DC-49A4-85BD-BF22711BC8F2}|TalentInsights.Application\\TalentInsights.Application.csproj|solutionrelative:talentinsights.application\\models\\request\\collaborator\\createcollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1037AACF-DCAB-45BA-B08E-CE598D0D8D54}|TalentInsights.Shared\\TalentInsights.Shared.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\talentinsights\\talentinsights.shared\\constants\\validationconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1037AACF-DCAB-45BA-B08E-CE598D0D8D54}|TalentInsights.Shared\\TalentInsights.Shared.csproj|solutionrelative:talentinsights.shared\\constants\\validationconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74C16413-CC42-4A88-88CA-B20FE1E5939A}|TalentInsights.WebApp\\TalentInsights.WebApp.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\talentinsights\\talentinsights.webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74C16413-CC42-4A88-88CA-B20FE1E5939A}|TalentInsights.WebApp\\TalentInsights.WebApp.csproj|solutionrelative:talentinsights.webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ValidationConstants.cs",
+              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Shared\\Constants\\ValidationConstants.cs",
+              "RelativeDocumentMoniker": "TalentInsights.Shared\\Constants\\ValidationConstants.cs",
+              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Shared\\Constants\\ValidationConstants.cs",
+              "RelativeToolTip": "TalentInsights.Shared\\Constants\\ValidationConstants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T15:26:45.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateCollaboratorRequest.cs",
+              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Application\\Models\\Request\\Collaborator\\CreateCollaboratorRequest.cs",
+              "RelativeDocumentMoniker": "TalentInsights.Application\\Models\\Request\\Collaborator\\CreateCollaboratorRequest.cs",
+              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Application\\Models\\Request\\Collaborator\\CreateCollaboratorRequest.cs",
+              "RelativeToolTip": "TalentInsights.Application\\Models\\Request\\Collaborator\\CreateCollaboratorRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T15:18:43.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CollaboratorsController.cs",
+              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.WebApp\\Controllers\\CollaboratorsController.cs",
+              "RelativeDocumentMoniker": "TalentInsights.WebApp\\Controllers\\CollaboratorsController.cs",
+              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.WebApp\\Controllers\\CollaboratorsController.cs",
+              "RelativeToolTip": "TalentInsights.WebApp\\Controllers\\CollaboratorsController.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T14:32:25.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.WebApp\\Program.cs",
+              "RelativeDocumentMoniker": "TalentInsights.WebApp\\Program.cs",
+              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.WebApp\\Program.cs",
+              "RelativeToolTip": "TalentInsights.WebApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T14:22:11.353Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -99,19 +99,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\viamatica\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Calculator.Startup.csproj",
+      "projectUniqueName": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Calculator.Startup.csproj",
       "projectName": "Calculator.Startup",
-      "projectPath": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\Calculator.Startup.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Documents\\Temp\\workspace\\bootcamp\\backend\\Calculator\\Calculator.Startup\\obj\\",
+      "projectPath": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\Calculator.Startup.csproj",
+      "packagesPath": "C:\\Users\\viamatica\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\Calculator\\Calculator.Startup\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\viamatica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -159,30 +164,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[9.0.14, 9.0.14]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[9.0.14, 9.0.14]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[9.0.14, 9.0.14]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[9.0.14, 9.0.14]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

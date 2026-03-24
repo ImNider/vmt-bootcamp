@@ -1,0 +1,6 @@
+@TalentInsights.WebApp_HostAddress = http://localhost:5078
+
+GET {{TalentInsights.WebApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
