@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="YoutubeClone.Application/YoutubeClone.Application.csproj" Id="bd433aed-92ce-4d46-aee4-b4adac6aab85" />
+  <Project Path="YoutubeClone.Shared/YoutubeClone.Shared.csproj" Id="969e29e6-298e-4763-a524-de6c4164a7e3" />
+  <Project Path="YoutubeClone.WebApp/YoutubeClone.WebApp.csproj" Id="1f46ed73-4501-46d6-bb97-c33847c74c89" />
+</Solution>

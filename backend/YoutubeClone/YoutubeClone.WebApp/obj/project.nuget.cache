@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "h65eKrR3GMA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\YoutubeClone\\YoutubeClone.WebApp\\YoutubeClone.WebApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\viamatica\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.14\\microsoft.aspnetcore.openapi.9.0.14.nupkg.sha512",
+    "C:\\Users\\viamatica\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

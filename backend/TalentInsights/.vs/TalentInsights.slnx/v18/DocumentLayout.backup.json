@@ -7,20 +7,12 @@
       "RelativeMoniker": "D:0:0:{CB678267-E983-9C15-2253-39057D326F73}|TalentInsights.WebApp\\TalentInsights.WebApp.csproj|solutionrelative:talentinsights.webapp\\controllers\\collaboratorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA0D4785-A359-4AB3-4472-C8F92DF7E483}|TalentInsights.Application\\TalentInsights.Application.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\talentinsights\\talentinsights.application\\models\\request\\collaborator\\updatecollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA0D4785-A359-4AB3-4472-C8F92DF7E483}|TalentInsights.Application\\TalentInsights.Application.csproj|solutionrelative:talentinsights.application\\models\\request\\collaborator\\updatecollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BA0D4785-A359-4AB3-4472-C8F92DF7E483}|TalentInsights.Application\\TalentInsights.Application.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\talentinsights\\talentinsights.application\\models\\request\\collaborator\\createcollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BA0D4785-A359-4AB3-4472-C8F92DF7E483}|TalentInsights.Application\\TalentInsights.Application.csproj|solutionrelative:talentinsights.application\\models\\request\\collaborator\\createcollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA0D4785-A359-4AB3-4472-C8F92DF7E483}|TalentInsights.Application\\TalentInsights.Application.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\talentinsights\\talentinsights.application\\models\\request\\collaborator\\getallcollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA0D4785-A359-4AB3-4472-C8F92DF7E483}|TalentInsights.Application\\TalentInsights.Application.csproj|solutionrelative:talentinsights.application\\models\\request\\collaborator\\getallcollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BA0D4785-A359-4AB3-4472-C8F92DF7E483}|TalentInsights.Application\\TalentInsights.Application.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\talentinsights\\talentinsights.application\\models\\request\\collaborator\\changepasswordcollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA0D4785-A359-4AB3-4472-C8F92DF7E483}|TalentInsights.Application\\TalentInsights.Application.csproj|solutionrelative:talentinsights.application\\models\\request\\collaborator\\changepasswordcollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BA0D4785-A359-4AB3-4472-C8F92DF7E483}|TalentInsights.Application\\TalentInsights.Application.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\talentinsights\\talentinsights.application\\models\\request\\collaborator\\updatecollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA0D4785-A359-4AB3-4472-C8F92DF7E483}|TalentInsights.Application\\TalentInsights.Application.csproj|solutionrelative:talentinsights.application\\models\\request\\collaborator\\updatecollaboratorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB678267-E983-9C15-2253-39057D326F73}|TalentInsights.WebApp\\TalentInsights.WebApp.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\talentinsights\\talentinsights.webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,24 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GetAllCollaboratorRequest.cs",
-              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Application\\Models\\Request\\Collaborator\\GetAllCollaboratorRequest.cs",
-              "RelativeDocumentMoniker": "TalentInsights.Application\\Models\\Request\\Collaborator\\GetAllCollaboratorRequest.cs",
-              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Application\\Models\\Request\\Collaborator\\GetAllCollaboratorRequest.cs",
-              "RelativeToolTip": "TalentInsights.Application\\Models\\Request\\Collaborator\\GetAllCollaboratorRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T16:40:00.788Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UpdateCollaboratorRequest.cs",
               "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Application\\Models\\Request\\Collaborator\\UpdateCollaboratorRequest.cs",
               "RelativeDocumentMoniker": "TalentInsights.Application\\Models\\Request\\Collaborator\\UpdateCollaboratorRequest.cs",
@@ -64,13 +43,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "CreateCollaboratorRequest.cs",
               "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Application\\Models\\Request\\Collaborator\\CreateCollaboratorRequest.cs",
               "RelativeDocumentMoniker": "TalentInsights.Application\\Models\\Request\\Collaborator\\CreateCollaboratorRequest.cs",
               "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Application\\Models\\Request\\Collaborator\\CreateCollaboratorRequest.cs",
               "RelativeToolTip": "TalentInsights.Application\\Models\\Request\\Collaborator\\CreateCollaboratorRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-24T15:18:43.688Z",
               "EditorCaption": ""
@@ -83,27 +62,14 @@
               "RelativeDocumentMoniker": "TalentInsights.WebApp\\Controllers\\CollaboratorsController.cs",
               "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.WebApp\\Controllers\\CollaboratorsController.cs",
               "RelativeToolTip": "TalentInsights.WebApp\\Controllers\\CollaboratorsController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAAB8AAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAB8AAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-24T14:32:25.944Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ChangePasswordCollaboratorRequest.cs",
-              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Application\\Models\\Request\\Collaborator\\ChangePasswordCollaboratorRequest.cs",
-              "RelativeDocumentMoniker": "TalentInsights.Application\\Models\\Request\\Collaborator\\ChangePasswordCollaboratorRequest.cs",
-              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.Application\\Models\\Request\\Collaborator\\ChangePasswordCollaboratorRequest.cs",
-              "RelativeToolTip": "TalentInsights.Application\\Models\\Request\\Collaborator\\ChangePasswordCollaboratorRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T16:27:09.078Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.WebApp\\Program.cs",
               "RelativeDocumentMoniker": "TalentInsights.WebApp\\Program.cs",

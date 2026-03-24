@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\YoutubeClone\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BD433AED-92CE-4D46-AEE4-B4ADAC6AAB85}|YoutubeClone.Application\\YoutubeClone.Application.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\youtubeclone\\youtubeclone.application\\models\\request\\users\\createuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD433AED-92CE-4D46-AEE4-B4ADAC6AAB85}|YoutubeClone.Application\\YoutubeClone.Application.csproj|solutionrelative:youtubeclone.application\\models\\request\\users\\createuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F46ED73-4501-46D6-BB97-C33847C74C89}|YoutubeClone.WebApp\\YoutubeClone.WebApp.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\youtubeclone\\youtubeclone.webapp\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F46ED73-4501-46D6-BB97-C33847C74C89}|YoutubeClone.WebApp\\YoutubeClone.WebApp.csproj|solutionrelative:youtubeclone.webapp\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD433AED-92CE-4D46-AEE4-B4ADAC6AAB85}|YoutubeClone.Application\\YoutubeClone.Application.csproj|c:\\users\\viamatica\\documents\\workspace\\vmt-bootcamp\\backend\\youtubeclone\\youtubeclone.application\\models\\request\\users\\updateuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD433AED-92CE-4D46-AEE4-B4ADAC6AAB85}|YoutubeClone.Application\\YoutubeClone.Application.csproj|solutionrelative:youtubeclone.application\\models\\request\\users\\updateuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UpdateUserRequest.cs",
+              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\YoutubeClone\\YoutubeClone.Application\\Models\\Request\\Users\\UpdateUserRequest.cs",
+              "RelativeDocumentMoniker": "YoutubeClone.Application\\Models\\Request\\Users\\UpdateUserRequest.cs",
+              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\YoutubeClone\\YoutubeClone.Application\\Models\\Request\\Users\\UpdateUserRequest.cs",
+              "RelativeToolTip": "YoutubeClone.Application\\Models\\Request\\Users\\UpdateUserRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T17:07:07.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateUserRequest.cs",
+              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\YoutubeClone\\YoutubeClone.Application\\Models\\Request\\Users\\CreateUserRequest.cs",
+              "RelativeDocumentMoniker": "YoutubeClone.Application\\Models\\Request\\Users\\CreateUserRequest.cs",
+              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\YoutubeClone\\YoutubeClone.Application\\Models\\Request\\Users\\CreateUserRequest.cs",
+              "RelativeToolTip": "YoutubeClone.Application\\Models\\Request\\Users\\CreateUserRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T17:06:51.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\YoutubeClone\\YoutubeClone.WebApp\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "YoutubeClone.WebApp\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\YoutubeClone\\YoutubeClone.WebApp\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "YoutubeClone.WebApp\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T17:04:50.166Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
