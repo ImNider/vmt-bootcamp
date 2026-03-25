@@ -16,6 +16,12 @@ El Backend de este Bootcamp es desarrollado con .NET
 	- Crear las carpetas DTOs, Requests y Responses dentro de Models.
 - Crear una Librería como Shared.
 	- Crear la carpeta Constants dentro de Shared.
+- Seguir este flujo:
+	1. Dto
+	2. Requests
+	3. IService
+	4. Service
+	5. Controller
 
 ## Enlaces Útiles
 - https://http.cat
