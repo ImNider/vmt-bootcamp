@@ -46,7 +46,7 @@ namespace TalentInsights.Application.Services
         {
             bool isDeleted = _cache.Delete(id.ToString());
             // Aquí se validaría, SI SUPIERA COMO
-            return ResponseHelper.Create(true);
+            return ResponseHelper.Create(isDeleted);
         }
     }
 }

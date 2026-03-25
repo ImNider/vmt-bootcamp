@@ -14,8 +14,11 @@ builder.Services.AddOpenApi();
 // Services
 builder.Services.AddScoped<ICollaboratorService, CollaboratorService>();
 builder.Services.AddScoped<ISkillService, SkillService>();
+builder.Services.AddScoped<ITeamService, TeamService>();
+
 builder.Services.AddSingleton<Cache<CollaboratorDto>>();
 builder.Services.AddSingleton<Cache<SkillDto>>();
+builder.Services.AddSingleton<Cache<TeamDto>>();
 
 var app = builder.Build();
 
