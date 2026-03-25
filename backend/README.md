@@ -21,3 +21,5 @@ El Backend de este Bootcamp es desarrollado con .NET
 - https://http.cat
 - https://refactoring.guru/design-patterns
 - https://www.uuidgenerator.net
+- https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
+- https://github.com/alenj0x1/net-ef

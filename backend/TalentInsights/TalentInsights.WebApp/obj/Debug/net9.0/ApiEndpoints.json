@@ -103,5 +103,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TalentInsights.WebApp.Controllers.SkillsController",
+    "Method": "Create",
+    "RelativePath": "api/Skills",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "TalentInsights.Application.Models.Request.Skill.CreateSkillRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

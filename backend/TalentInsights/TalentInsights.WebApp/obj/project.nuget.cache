@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "oEwv7g6IakQ=",
+  "dgSpecHash": "c0whIRZw+kQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Documents\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.WebApp\\TalentInsights.WebApp.csproj",
+  "projectFilePath": "C:\\Users\\viamatica\\Documents\\workspace\\vmt-bootcamp\\backend\\TalentInsights\\TalentInsights.WebApp\\TalentInsights.WebApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.14\\microsoft.aspnetcore.openapi.9.0.14.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512"
+    "C:\\Users\\viamatica\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.14\\microsoft.aspnetcore.openapi.9.0.14.nupkg.sha512",
+    "C:\\Users\\viamatica\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\viamatica\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512"
   ],
   "logs": []
 }
