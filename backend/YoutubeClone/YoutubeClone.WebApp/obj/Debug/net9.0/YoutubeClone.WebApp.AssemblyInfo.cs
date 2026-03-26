@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YoutubeClone.WebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5629df74fa0d05cd97e1769ed988c5b1c01875d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23712fe83d337a13edb186d1eb6f72a42f18278d")]
 [assembly: System.Reflection.AssemblyProductAttribute("YoutubeClone.WebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YoutubeClone.WebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

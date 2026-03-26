@@ -13,8 +13,10 @@ builder.Services.AddOpenApi();
 
 // Services
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IChannelService, ChannelService>();
 
 builder.Services.AddSingleton<Cache<UserDto>>();
+builder.Services.AddSingleton<Cache<ChannelDto>>();
 
 var app = builder.Build();
 

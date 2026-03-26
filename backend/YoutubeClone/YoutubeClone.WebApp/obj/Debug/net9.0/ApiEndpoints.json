@@ -50,22 +50,12 @@
     "Parameters": [
       {
         "Name": "Limit",
-        "Type": "System.Int32",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       },
       {
         "Name": "Offset",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Handle",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "DisplayName",
-        "Type": "System.String",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
@@ -73,17 +63,12 @@
   },
   {
     "ContainingType": "YoutubeClone.WebApp.Controllers.ChannelsController",
-    "Method": "Update",
+    "Method": "GetById",
     "RelativePath": "api/Channels/{id}",
-    "HttpMethod": "PUT",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "model",
-        "Type": "YoutubeClone.Application.Models.Request.Channels.UpdateChannelRequest",
-        "IsRequired": true
-      },
       {
         "Name": "id",
         "Type": "System.Guid",

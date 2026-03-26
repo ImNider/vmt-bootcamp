@@ -10,12 +10,6 @@ namespace YoutubeClone.Application.Services
 {
     public class UserService(Cache<UserDto> _cache) : IUserService
     {
-        /*private readonly Cache<UserDto> _cache;
-
-        public UserService(Cache<UserDto> cache)
-        {
-            _cache = cache;
-        }*/
 
         public GenericResponse<UserDto> Create(CreateUserRequest model)
         {
@@ -52,7 +46,7 @@ namespace YoutubeClone.Application.Services
             return ResponseHelper.Create(users);
         }
 
-        public GenericResponse<UserDto> GetById(Guid id)
+        public GenericResponse<UserDto?> GetById(Guid id)
         {
             var user = _cache.Get(id.ToString());
             //validar
