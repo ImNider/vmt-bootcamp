@@ -10,18 +10,37 @@ El Backend de este Bootcamp es desarrollado con .NET
 - Siempre usar Soluciones para los proyectos.
 - Los Proyectos dentro de una Solucion deben tener la estructura SolutionName.ProjectName.
 
-### Crear un proyecto ASP.NET Core Web App
-- Crear una Librería como Application.
-	- Crear las carpetas Helpers, Interfaces, Models y Services dentro de Application.
-	- Crear las carpetas DTOs, Requests y Responses dentro de Models.
-- Crear una Librería como Shared.
-	- Crear las carpetas Constants y Helpers dentro de Shared.
-### Flujo recomendado
-1. Dto
-2. Requests
-3. IService
-4. Service
-5. Controller
+## Flujo recomendado para crear un proyecto
+### Capas
+- Crear un ProjectName.WebApp como ASP.NET Core Web App
+- Crear un ProjectName.Application como Library
+- Crear un ProjectName.Shared como Library
+
+### Carpetas de la Capa Application
+- Helpers
+- Interfaces
+	- Services
+- Models
+	- DTOs
+	- Requests
+	- Responses
+- Services
+
+### Carpetas de la Capa Shared
+- Constants
+- Helpers
+
+### Archivos (Orden sugerido)
+1. Cache.cs - `Shared/`
+2. DataTimeHelper.cs - `Shared/Helpers/`
+3. ValidationConstants.cs - `Shared/Constants/`
+4. GenericResponse.cs - `Application/Models/Responses/`
+5. ResponsesHelper.cs - `Application/Helpers/`
+6. EntityDto.cs - `Application/Models/DTOs/`
+7. Requests - `Application/Models/Requests/EntityName/`
+8. IService - `Application/Interface/Services/`
+9. Service - `Application/Services/`
+10. Controller - `WebApp/Controllers/`
 
 ## Enlaces Útiles
 - https://http.cat
