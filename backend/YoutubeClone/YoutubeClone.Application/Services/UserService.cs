@@ -8,14 +8,14 @@ using YoutubeClone.Shared.Helpers;
 
 namespace YoutubeClone.Application.Services
 {
-    public class UserService : IUserService
+    public class UserService(Cache<UserDto> _cache) : IUserService
     {
-        private readonly Cache<UserDto> _cache;
+        /*private readonly Cache<UserDto> _cache;
 
         public UserService(Cache<UserDto> cache)
         {
             _cache = cache;
-        }
+        }*/
 
         public GenericResponse<UserDto> Create(CreateUserRequest model)
         {
@@ -37,12 +37,16 @@ namespace YoutubeClone.Application.Services
 
         public GenericResponse<bool> Delete(Guid id)
         {
-            bool isDeleted = _cache.Delete(id.ToString());
-            //validar
-            return ResponseHelper.Create(isDeleted);
+            var exist = _cache.Get(id.ToString());
+            if (exist is null)
+            {
+                return ResponseHelper.Create(false);
+            }
+            _cache.Delete(id.ToString());
+            return ResponseHelper.Create(true);
         }
 
-        public GenericResponse<List<UserDto>> GetAll()
+        public GenericResponse<List<UserDto>> GetAll(int limit, int offset)
         {
             var users = _cache.Get();
             return ResponseHelper.Create(users);
