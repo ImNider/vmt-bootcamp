@@ -2,10 +2,8 @@
 {
     public class GetAllCollaboratorRequest
     {
-        public int Limit { get; set; }
-        public int Offset { get; set; }
-        public string? GitlabProfile { get; set; }
-        public string? FullName { get; set; }
+        public int? Limit { get; set; }
+        public int? Offset { get; set; }
 
     }
 }

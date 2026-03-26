@@ -9,15 +9,8 @@ using TalentInsights.Shared.Helpers;
 
 namespace TalentInsights.Application.Services
 {
-    public class TeamService : ITeamService
+    public class TeamService(Cache<TeamDto> _cache) : ITeamService
     {
-        private readonly Cache<TeamDto> _cache;
-
-        public TeamService(Cache<TeamDto> cache)
-        {
-            _cache = cache;
-        }
-
         public GenericResponse<TeamDto> Create(CreateTeamRequest model)
         {
             var team = new TeamDto
@@ -36,18 +29,22 @@ namespace TalentInsights.Application.Services
 
         public GenericResponse<bool> Delete(Guid id)
         {
-            bool isDeleted = _cache.Delete(id.ToString());
-            // validar
-            return ResponseHelper.Create(isDeleted);
+            var exist = _cache.Get(id.ToString());
+            if (exist == null)
+            {
+                return ResponseHelper.Create(false);
+            }
+            _cache.Delete(id.ToString());
+            return ResponseHelper.Create(true);
         }
 
-        public GenericResponse<List<TeamDto>> GetAll()
+        public GenericResponse<List<TeamDto>> GetAll(int limit, int offset)
         {
             var teams = _cache.Get();
             return ResponseHelper.Create(teams);
         }
 
-        public GenericResponse<TeamDto> GetById(Guid id)
+        public GenericResponse<TeamDto?> GetById(Guid id)
         {
             var team = _cache.Get(id.ToString());
             return ResponseHelper.Create(team);

@@ -7,15 +7,8 @@ using TalentInsights.Shared;
 
 namespace TalentInsights.Application.Services
 {
-    public class SkillService : ISkillService
+    public class SkillService(Cache<SkillDto> _cache) : ISkillService
     {
-        private readonly Cache<SkillDto> _cache;
-
-        public SkillService(Cache<SkillDto> cache)
-        {
-            _cache = cache;
-        }
-
         public GenericResponse<SkillDto> Create(CreateSkillRequest model)
         {
             var skill = new SkillDto
@@ -29,24 +22,27 @@ namespace TalentInsights.Application.Services
             return ResponseHelper.Create(skill);
         }
 
-        public GenericResponse<List<SkillDto>> GetAll()
+        public GenericResponse<List<SkillDto>> GetAll(int limit, int offset)
         {
             var skills = _cache.Get();
             return ResponseHelper.Create(skills);
         }
 
-        public GenericResponse<SkillDto> GetById(Guid id)
+        public GenericResponse<SkillDto?> GetById(Guid id)
         {
             var skill = _cache.Get(id.ToString());
-            // Aquí se validaría, SI SUPIERA COMO
             return ResponseHelper.Create(skill);
         }
 
         public GenericResponse<bool> Delete(Guid id)
         {
-            bool isDeleted = _cache.Delete(id.ToString());
-            // Aquí se validaría, SI SUPIERA COMO
-            return ResponseHelper.Create(isDeleted);
+            var exist = _cache.Get(id.ToString());
+            if (exist is null)
+            {
+                return ResponseHelper.Create(false);
+            }
+            _cache.Delete(id.ToString());
+            return ResponseHelper.Create(true);
         }
     }
 }

@@ -16,9 +16,9 @@ namespace TalentInsights.WebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] GetAllSkillRequest model)
         {
-            var rsp = skillService.GetAll();
+            var rsp = skillService.GetAll(model.Limit ?? 0, model.Offset ?? 0);
             return Ok(rsp);
         }
 

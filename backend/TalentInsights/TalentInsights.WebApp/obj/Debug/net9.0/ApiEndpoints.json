@@ -25,44 +25,13 @@
     "Parameters": [
       {
         "Name": "Limit",
-        "Type": "System.Int32",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       },
       {
         "Name": "Offset",
-        "Type": "System.Int32",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
-      },
-      {
-        "Name": "GitlabProfile",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "FullName",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TalentInsights.WebApp.Controllers.CollaboratorsController",
-    "Method": "Update",
-    "RelativePath": "api/Collaborators/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "TalentInsigts.Application.Models.Request.Collaborator.UpdateCollaboratorRequest",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -100,27 +69,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TalentInsights.WebApp.Controllers.CollaboratorsController",
-    "Method": "ChangePassword",
-    "RelativePath": "api/Collaborators/change-password/{id}",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "model",
-        "Type": "TalentInsights.Application.Models.Request.Collaborator.ChangePasswordCollaboratorRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "TalentInsights.WebApp.Controllers.SkillsController",
     "Method": "Create",
     "RelativePath": "api/Skills",
@@ -143,7 +91,18 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "Limit",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Offset",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -201,7 +160,18 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "Limit",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Offset",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {

@@ -7,8 +7,8 @@ namespace TalentInsights.Application.Interfaces.Services
     public interface ITeamService
     {
         public GenericResponse<TeamDto> Create(CreateTeamRequest model);
-        public GenericResponse<List<TeamDto>> GetAll();
-        public GenericResponse<TeamDto> GetById(Guid id);
+        public GenericResponse<List<TeamDto>> GetAll(int limit, int offset);
+        public GenericResponse<TeamDto?> GetById(Guid id);
         public GenericResponse<bool> Delete(Guid id);
     }
 }
