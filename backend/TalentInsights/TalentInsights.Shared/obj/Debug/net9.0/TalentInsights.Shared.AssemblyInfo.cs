@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TalentInsights.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4eb1fda0bbab36bf0bb25ac4b4b2421855566e6a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aeb3105695ecf4aac8c841e828f4dece8b56ed03")]
 [assembly: System.Reflection.AssemblyProductAttribute("TalentInsights.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TalentInsights.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

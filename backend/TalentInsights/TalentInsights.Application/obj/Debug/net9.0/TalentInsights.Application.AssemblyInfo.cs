@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TalentInsights.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d69341e482d8216a729cefde1f3b6358e8cc0d83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aeb3105695ecf4aac8c841e828f4dece8b56ed03")]
 [assembly: System.Reflection.AssemblyProductAttribute("TalentInsights.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TalentInsights.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
