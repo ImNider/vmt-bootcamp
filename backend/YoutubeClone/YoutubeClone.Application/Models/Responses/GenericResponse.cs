@@ -1,9 +1,0 @@
-﻿namespace YoutubeClone.Application.Models.Responses
-{
-    public class GenericResponse<T>
-    {
-        public string Message { get; set; }
-        public DateTime TimeStamp { get; } = DateTime.UtcNow;
-        public T Data { get; set; }
-    }
-}
