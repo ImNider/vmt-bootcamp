@@ -19,13 +19,15 @@ GO
 CREATE TABLE Collaborators (
     Id            UNIQUEIDENTIFIER   NOT NULL DEFAULT NEWID(),
     FullName      NVARCHAR(150)      NOT NULL,
+    Email         NVARCHAR(100)      NOT NULL,
     GitlabProfile NVARCHAR(255)      NULL,
     Position      NVARCHAR(100)      NOT NULL,
     Password      NVARCHAR(255)      NOT NULL,
     JoinedAt      DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
     IsActive      BIT                NOT NULL DEFAULT 1,
     CreatedAt     DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
-    UpdatedAt     DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
+    UpdatedAt     DATETIME2          NULL DEFAULT SYSUTCDATETIME(),
+    DeleteAt      DATETIME2          NULL DEFAULT SYSUTCDATETIME(),
 
     CONSTRAINT PK_Collaborators PRIMARY KEY (Id)
 );
