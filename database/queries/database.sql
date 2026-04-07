@@ -21,6 +21,7 @@ CREATE TABLE Collaborators (
     FullName      NVARCHAR(150)      NOT NULL,
     GitlabProfile NVARCHAR(255)      NULL,
     Position      NVARCHAR(100)      NOT NULL,
+    Password      NVARCHAR(255)      NOT NULL,
     JoinedAt      DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
     IsActive      BIT                NOT NULL DEFAULT 1,
     CreatedAt     DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
@@ -44,7 +45,7 @@ CREATE TABLE Skills (
 GO
 
 -- ============================================================
---  TABLA: CollaboratorSkills  (relaciÛn N:M Collaborator <-> Skill)
+--  TABLA: CollaboratorSkills  (relaci√≥n N:M Collaborator <-> Skill)
 -- ============================================================
 CREATE TABLE CollaboratorSkills (
     CollaboratorId  UNIQUEIDENTIFIER   NOT NULL,
@@ -78,7 +79,7 @@ CREATE TABLE Teams (
 GO
 
 -- ============================================================
---  TABLA: TeamMembers  (relaciÛn N:M Team <-> Collaborator)
+--  TABLA: TeamMembers  (relaci√≥n N:M Team <-> Collaborator)
 -- ============================================================
 CREATE TABLE TeamMembers (
     TeamId         UNIQUEIDENTIFIER   NOT NULL,
@@ -182,7 +183,7 @@ CREATE TABLE Posts (
 GO
 
 -- ============================================================
---  TABLA: Permissions  (cat·logo de permisos disponibles)
+--  TABLA: Permissions  (cat√°logo de permisos disponibles)
 -- ============================================================
 CREATE TABLE Permissions (
     Id          UNIQUEIDENTIFIER   NOT NULL DEFAULT NEWID(),
@@ -201,7 +202,7 @@ CREATE TABLE Permissions (
 GO
 
 -- ============================================================
---  TABLA: CollaboratorPermissions  (permisos asignados por asignaciÛn)
+--  TABLA: CollaboratorPermissions  (permisos asignados por asignaci√≥n)
 -- ============================================================
 CREATE TABLE CollaboratorPermissions (
     CollaboratorId UNIQUEIDENTIFIER   NOT NULL,
@@ -220,7 +221,7 @@ CREATE TABLE CollaboratorPermissions (
 GO
 
 -- ============================================================
---  TABLA: CollaboratorHistory  (histÛrico de colaboradores)
+--  TABLA: CollaboratorHistory  (hist√≥rico de colaboradores)
 -- ============================================================
 CREATE TABLE CollaboratorHistory (
     Id             UNIQUEIDENTIFIER   NOT NULL DEFAULT NEWID(),
@@ -229,7 +230,7 @@ CREATE TABLE CollaboratorHistory (
     EntityId       UNIQUEIDENTIFIER   NOT NULL,
     EntityName     NVARCHAR(200)      NOT NULL,
     StartedAt      DATETIME2          NOT NULL,
-    EndedAt        DATETIME2          NULL,        -- NULL = a˙n activo
+    EndedAt        DATETIME2          NULL,        -- NULL = a√∫n activo
     RecordedAt     DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
 
     CONSTRAINT PK_CollaboratorHistory PRIMARY KEY (Id),
@@ -240,27 +241,27 @@ CREATE TABLE CollaboratorHistory (
 GO
 
 -- ============================================================
---  SEED: Cat·logo de permisos del sistema
+--  SEED: Cat√°logo de permisos del sistema
 -- ============================================================
 INSERT INTO Permissions (Id, Code, Module, Action, Name, Description, Specificity)
 VALUES
-    (NEWID(), 'COLLABORATORS/CREATE',          'COLLABORATORS', 'CREATE',          'Crear colaborador',                    'Permite la creaciÛn de un colaborador',                          'ByAssignment'),
-    (NEWID(), 'COLLABORATORS/UPDATE',          'COLLABORATORS', 'UPDATE',          'Actualizar colaborador',               'Permite la actualizaciÛn de un colaborador',                     'ByAssignment'),
-    (NEWID(), 'COLLABORATORS/UPDATE_PERSONAL', 'COLLABORATORS', 'UPDATE_PERSONAL', 'ActualizaciÛn personal de colaborador','Permite la actualizaciÛn personal del colaborador',             'Own'),
-    (NEWID(), 'COLLABORATORS/DISABLE',         'COLLABORATORS', 'DISABLE',         'Deshabilitar colaborador',             'Permite la deshabilitaciÛn de un colaborador',                   'ByAssignment'),
-    (NEWID(), 'COLLABORATORS/VIEW_HISTORICAL', 'COLLABORATORS', 'VIEW_HISTORICAL', 'Ver histÛrico de un colaborador',      'Permite la visualizaciÛn del histÛrico de un colaborador',       'ByAssignment'),
-    (NEWID(), 'TEAMS/CREATE',                  'TEAMS',         'CREATE',          'Crear equipo p˙blico',                 'Permite la creaciÛn de equipos p˙blicos',                        'ByAssignment'),
-    (NEWID(), 'TEAMS/UPDATE',                  'TEAMS',         'UPDATE',          'Actualizar equipo p˙blico',            'Permite la actualizaciÛn de equipos p˙blicos',                   'ByAssignment'),
-    (NEWID(), 'TEAMS/DELETE',                  'TEAMS',         'DELETE',          'Eliminar equipo p˙blico',              'Permite la eliminaciÛn de equipos p˙blicos',                     'ByAssignment'),
-    (NEWID(), 'POSTS/CREATE',                  'POSTS',         'CREATE',          'Crear publicaciÛn',                    'Permite la creaciÛn de publicaciones',                           'Own'),
-    (NEWID(), 'POSTS/UPDATE',                  'POSTS',         'UPDATE',          'Actualizar publicaciÛn',               'Permite la actualizaciÛn de publicaciones',                      'Own'),
-    (NEWID(), 'POSTS/DELETE',                  'POSTS',         'DELETE',          'Eliminar publicaciÛn',                 'Permite la eliminaciÛn de publicaciones',                        'Own'),
-    (NEWID(), 'PROJECTS/CREATE',               'PROJECTS',      'CREATE',          'Crear proyecto',                       'Permite la creaciÛn de proyectos',                               'ByAssignment'),
-    (NEWID(), 'PROJECTS/UPDATE',               'PROJECTS',      'UPDATE',          'Actualizar proyecto',                  'Permite la actualizaciÛn de proyectos',                          'ByAssignment'),
-    (NEWID(), 'PROJECTS/ADD_COLABORATORS',     'PROJECTS',      'ADD_COLABORATORS','AÒadir colaboradores a un proyecto',   'Permite la adiciÛn de colaboradores a un proyecto',              'Creator'),
-    (NEWID(), 'PROJECTS/DELETE_COLABORATORS',  'PROJECTS',      'DELETE_COLABORATORS','Eliminar colaboradores de un proyecto','Permite la eliminaciÛn de colaboradores de un proyecto',     'Creator'),
-    (NEWID(), 'PROJECTS/SEND_MESSAGES',        'PROJECTS',      'SEND_MESSAGES',   'Enviar mensajes en un proyecto',       'Permite el envÌo de mensajes en un proyecto',                   'Own'),
-    (NEWID(), 'PROJECTS/DELETE_SENDING_OWN_MESSAGES','PROJECTS','DELETE_SENDING_OWN_MESSAGES','Eliminar mensajes propios enviados','Permite la eliminaciÛn de mensajes propios enviados',  'Own');
+    (NEWID(), 'COLLABORATORS/CREATE',          'COLLABORATORS', 'CREATE',          'Crear colaborador',                    'Permite la creaci√≥n de un colaborador',                          'ByAssignment'),
+    (NEWID(), 'COLLABORATORS/UPDATE',          'COLLABORATORS', 'UPDATE',          'Actualizar colaborador',               'Permite la actualizaci√≥n de un colaborador',                     'ByAssignment'),
+    (NEWID(), 'COLLABORATORS/UPDATE_PERSONAL', 'COLLABORATORS', 'UPDATE_PERSONAL', 'Actualizaci√≥n personal de colaborador','Permite la actualizaci√≥n personal del colaborador',             'Own'),
+    (NEWID(), 'COLLABORATORS/DISABLE',         'COLLABORATORS', 'DISABLE',         'Deshabilitar colaborador',             'Permite la deshabilitaci√≥n de un colaborador',                   'ByAssignment'),
+    (NEWID(), 'COLLABORATORS/VIEW_HISTORICAL', 'COLLABORATORS', 'VIEW_HISTORICAL', 'Ver hist√≥rico de un colaborador',      'Permite la visualizaci√≥n del hist√≥rico de un colaborador',       'ByAssignment'),
+    (NEWID(), 'TEAMS/CREATE',                  'TEAMS',         'CREATE',          'Crear equipo p√∫blico',                 'Permite la creaci√≥n de equipos p√∫blicos',                        'ByAssignment'),
+    (NEWID(), 'TEAMS/UPDATE',                  'TEAMS',         'UPDATE',          'Actualizar equipo p√∫blico',            'Permite la actualizaci√≥n de equipos p√∫blicos',                   'ByAssignment'),
+    (NEWID(), 'TEAMS/DELETE',                  'TEAMS',         'DELETE',          'Eliminar equipo p√∫blico',              'Permite la eliminaci√≥n de equipos p√∫blicos',                     'ByAssignment'),
+    (NEWID(), 'POSTS/CREATE',                  'POSTS',         'CREATE',          'Crear publicaci√≥n',                    'Permite la creaci√≥n de publicaciones',                           'Own'),
+    (NEWID(), 'POSTS/UPDATE',                  'POSTS',         'UPDATE',          'Actualizar publicaci√≥n',               'Permite la actualizaci√≥n de publicaciones',                      'Own'),
+    (NEWID(), 'POSTS/DELETE',                  'POSTS',         'DELETE',          'Eliminar publicaci√≥n',                 'Permite la eliminaci√≥n de publicaciones',                        'Own'),
+    (NEWID(), 'PROJECTS/CREATE',               'PROJECTS',      'CREATE',          'Crear proyecto',                       'Permite la creaci√≥n de proyectos',                               'ByAssignment'),
+    (NEWID(), 'PROJECTS/UPDATE',               'PROJECTS',      'UPDATE',          'Actualizar proyecto',                  'Permite la actualizaci√≥n de proyectos',                          'ByAssignment'),
+    (NEWID(), 'PROJECTS/ADD_COLABORATORS',     'PROJECTS',      'ADD_COLABORATORS','A√±adir colaboradores a un proyecto',   'Permite la adici√≥n de colaboradores a un proyecto',              'Creator'),
+    (NEWID(), 'PROJECTS/DELETE_COLABORATORS',  'PROJECTS',      'DELETE_COLABORATORS','Eliminar colaboradores de un proyecto','Permite la eliminaci√≥n de colaboradores de un proyecto',     'Creator'),
+    (NEWID(), 'PROJECTS/SEND_MESSAGES',        'PROJECTS',      'SEND_MESSAGES',   'Enviar mensajes en un proyecto',       'Permite el env√≠o de mensajes en un proyecto',                   'Own'),
+    (NEWID(), 'PROJECTS/DELETE_SENDING_OWN_MESSAGES','PROJECTS','DELETE_SENDING_OWN_MESSAGES','Eliminar mensajes propios enviados','Permite la eliminaci√≥n de mensajes propios enviados',  'Own');
 GO
 
 -- ============================================================
@@ -268,18 +269,18 @@ GO
 -- ============================================================
 CREATE TABLE Menus (
     Id          UNIQUEIDENTIFIER   NOT NULL DEFAULT NEWID(),
-    -- Identificador ˙nico legible (ej: "collaborators", "projects")
+    -- Identificador √∫nico legible (ej: "collaborators", "projects")
     Code        NVARCHAR(100)      NOT NULL,
     Name        NVARCHAR(150)      NOT NULL,
-    -- Ruta de navegaciÛn en el frontend (ej: "/collaborators", "/projects/list")
+    -- Ruta de navegaci√≥n en el frontend (ej: "/collaborators", "/projects/list")
     Path        NVARCHAR(300)      NOT NULL,
-    -- Nombre del Ìcono seg˙n la librerÌa del frontend (ej: "users", "folder", "settings")
+    -- Nombre del √≠cono seg√∫n la librer√≠a del frontend (ej: "users", "folder", "settings")
     IconName    NVARCHAR(100)      NOT NULL,
-    -- Men˙ padre para soportar estructura jer·rquica (submen˙s)
+    -- Men√∫ padre para soportar estructura jer√°rquica (submen√∫s)
     ParentId    UNIQUEIDENTIFIER   NULL,
-    -- Orden de apariciÛn dentro del mismo nivel
+    -- Orden de aparici√≥n dentro del mismo nivel
     SortOrder   INT                NOT NULL DEFAULT 0,
-    -- Indica si el Ìtem es visible en la navegaciÛn (puede existir pero estar oculto)
+    -- Indica si el √≠tem es visible en la navegaci√≥n (puede existir pero estar oculto)
     IsVisible   BIT                NOT NULL DEFAULT 1,
     IsActive    BIT                NOT NULL DEFAULT 1,
     CreatedAt   DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
@@ -293,14 +294,14 @@ CREATE TABLE Menus (
 GO
 
 -- ============================================================
---  TABLA: MenuPermissions  (relaciÛn N:M Menu <-> Permission)
---  Define quÈ permisos son necesarios para ver/acceder a un Ìtem de men˙
+--  TABLA: MenuPermissions  (relaci√≥n N:M Menu <-> Permission)
+--  Define qu√© permisos son necesarios para ver/acceder a un √≠tem de men√∫
 -- ============================================================
 CREATE TABLE MenuPermissions (
     MenuId       UNIQUEIDENTIFIER   NOT NULL,
     PermissionId UNIQUEIDENTIFIER   NOT NULL,
     -- Indica si el permiso es requerido (ALL) o basta con tenerlo (ANY)
-    -- ALL = el colaborador debe tener TODOS los permisos del men˙ para verlo
+    -- ALL = el colaborador debe tener TODOS los permisos del men√∫ para verlo
     -- ANY = basta con tener AL MENOS UNO para verlo
     MatchMode    NVARCHAR(10)       NOT NULL DEFAULT 'ANY',
 
@@ -314,7 +315,7 @@ CREATE TABLE MenuPermissions (
 GO
 
 -- ============================================================
---  SEED: Men˙s del sistema TalentInsights
+--  SEED: Men√∫s del sistema TalentInsights
 -- ============================================================
 DECLARE @IdCollaborators  UNIQUEIDENTIFIER = NEWID();
 DECLARE @IdCollabList     UNIQUEIDENTIFIER = NEWID();
@@ -328,22 +329,22 @@ DECLARE @IdProfile        UNIQUEIDENTIFIER = NEWID();
 
 INSERT INTO Menus (Id, Code, Name, Path, IconName, ParentId, SortOrder, IsVisible, IsActive)
 VALUES
-    -- Men˙s raÌz
+    -- Men√∫s ra√≠z
     (@IdCollaborators, 'collaborators',         'Colaboradores',    '/collaborators',           'users',          NULL,              1,  1, 1),
     (@IdTeams,         'teams',                 'Equipos',          '/teams',                   'users-group',    NULL,              2,  1, 1),
     (@IdProjects,      'projects',              'Proyectos',        '/projects',                'folder',         NULL,              3,  1, 1),
     (@IdPosts,         'posts',                 'Publicaciones',    '/posts',                   'newspaper',      NULL,              4,  1, 1),
     (@IdProfile,       'profile',               'Mi Perfil',        '/profile',                 'user-circle',    NULL,              5,  1, 1),
-    -- Submen˙s de Colaboradores
+    -- Submen√∫s de Colaboradores
     (@IdCollabList,    'collaborators.list',    'Listado',          '/collaborators/list',      'list',           @IdCollaborators,  1,  1, 1),
-    (@IdCollabHistory, 'collaborators.history', 'HistÛrico',        '/collaborators/history',   'clock-history',  @IdCollaborators,  2,  1, 1),
-    -- Submen˙s de Proyectos
+    (@IdCollabHistory, 'collaborators.history', 'Hist√≥rico',        '/collaborators/history',   'clock-history',  @IdCollaborators,  2,  1, 1),
+    -- Submen√∫s de Proyectos
     (@IdProjList,      'projects.list',         'Listado',          '/projects/list',           'list',           @IdProjects,       1,  1, 1),
     (@IdProjMessages,  'projects.messages',     'Mensajes',         '/projects/messages',       'chat',           @IdProjects,       2,  1, 1);
 GO
 
 -- ============================================================
---  SEED: RelaciÛn Men˙s <-> Permisos
+--  SEED: Relaci√≥n Men√∫s <-> Permisos
 -- ============================================================
 INSERT INTO MenuPermissions (MenuId, PermissionId, MatchMode)
 SELECT m.Id, p.Id, 'ANY'
@@ -352,9 +353,9 @@ CROSS JOIN Permissions p
 WHERE
     -- Listado de colaboradores requiere permiso de crear o actualizar
     (m.Code = 'collaborators.list'    AND p.Code IN ('COLLABORATORS/CREATE', 'COLLABORATORS/UPDATE'))
-    -- HistÛrico requiere su permiso especÌfico
+    -- Hist√≥rico requiere su permiso espec√≠fico
     OR (m.Code = 'collaborators.history' AND p.Code = 'COLLABORATORS/VIEW_HISTORICAL')
-    -- GestiÛn de equipos
+    -- Gesti√≥n de equipos
     OR (m.Code = 'teams'              AND p.Code IN ('TEAMS/CREATE', 'TEAMS/UPDATE', 'TEAMS/DELETE'))
     -- Listado de proyectos
     OR (m.Code = 'projects.list'      AND p.Code IN ('PROJECTS/CREATE', 'PROJECTS/UPDATE'))
@@ -365,7 +366,7 @@ WHERE
 GO
 
 -- ============================================================
---  ÕNDICES para mejorar el rendimiento de consultas frecuentes
+--  √çNDICES para mejorar el rendimiento de consultas frecuentes
 -- ============================================================
 CREATE INDEX IX_CollaboratorSkills_SkillId       ON CollaboratorSkills (SkillId);
 CREATE INDEX IX_TeamMembers_CollaboratorId        ON TeamMembers (CollaboratorId);
@@ -378,4 +379,5 @@ CREATE INDEX IX_CollaboratorHistory_EntityType    ON CollaboratorHistory (Entity
 CREATE INDEX IX_Menus_ParentId                   ON Menus (ParentId);
 CREATE INDEX IX_Menus_SortOrder                  ON Menus (SortOrder);
 CREATE INDEX IX_MenuPermissions_PermissionId     ON MenuPermissions (PermissionId);
+
 GO
