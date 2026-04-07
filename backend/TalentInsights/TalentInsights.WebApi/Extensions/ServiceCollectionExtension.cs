@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using System.Text;
 using TalentInsights.Application.Helpers;
+using TalentInsights.Application.Interfaces;
 using TalentInsights.Application.Interfaces.Services;
 using TalentInsights.Application.Services;
 using TalentInsights.Domain.Database.SqlServer.Context;
+using TalentInsights.Domain.Exceptions;
 using TalentInsights.Domain.Interfaces.Repositories;
 using TalentInsights.Infrastructure.Persistence.SqlServer.Repositories;
 using TalentInsights.Shared.Constants;
@@ -12,128 +16,144 @@ using TalentInsights.WebApi.Middlewares;
 
 namespace TalentInsights.WebApi.Extensions
 {
-	public static class ServiceCollectionExtension
-	{
-		/// <summary>
-		/// Método que sirve para añadir todos los servicios de la aplicación
-		/// </summary>
-		/// <param name="services"></param>
-		public static void AddServices(this IServiceCollection services)
-		{
-			services.AddScoped<ICollaboratorService, CollaboratorService>();
-		}
+    public static class ServiceCollectionExtension
+    {
+        /// <summary>
+        /// Método que sirve para añadir todos los servicios de la aplicación
+        /// </summary>
+        /// <param name="services"></param>
+        public static void AddServices(this IServiceCollection services)
+        {
+            services.AddScoped<ICollaboratorService, CollaboratorService>();
+            services.AddScoped<IAuthService, AuthServices>();
+        }
 
-		/// <summary>
-		/// Método que sirve para añadir todos los repositorios de la aplicación
-		/// </summary>
-		/// <param name="services"></param>
-		public static void AddRepositories(this IServiceCollection services)
-		{
-			services.AddTransient<ICollaboratorRepository, CollaboratorRepository>();
-		}
+        /// <summary>
+        /// Método que sirve para añadir todos los repositorios de la aplicación
+        /// </summary>
+        /// <param name="services"></param>
+        public static void AddRepositories(this IServiceCollection services)
+        {
+            services.AddTransient<ICollaboratorRepository, CollaboratorRepository>();
+        }
 
 
-		/// <summary>
-		/// Método que añade lo esencial que necesita nuestra aplicación para funcionar
-		/// </summary>
-		/// <param name="services"></param>
-		public async static Task AddCore(this IServiceCollection services, IConfiguration configuration)
-		{
-			services.AddControllers().ConfigureApiBehaviorOptions(options =>
-			{
-				options.InvalidModelStateResponseFactory = (errorContext) =>
-				{
-					var errors = errorContext.ModelState.Values.SelectMany(value => value.Errors.Select(error => error.ErrorMessage).ToList()).ToList();
-					var response = ResponseHelper.Create(
-						data: ValidationConstants.VALIDATION_MESSAGE,
-						errors: errors,
-						message: ValidationConstants.VALIDATION_MESSAGE
-						);
-					return new BadRequestObjectResult(response);
-				};
-			});
-			// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-			services.AddOpenApi();
+        /// <summary>
+        /// Método que añade lo esencial que necesita nuestra aplicación para funcionar
+        /// </summary>
+        /// <param name="services"></param>
+        public async static Task AddCore(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddControllers().ConfigureApiBehaviorOptions(options =>
+            {
+                options.InvalidModelStateResponseFactory = (errorContext) =>
+                {
+                    var errors = errorContext.ModelState.Values.SelectMany(value => value.Errors.Select(error => error.ErrorMessage).ToList()).ToList();
+                    var response = ResponseHelper.Create(
+                        data: ValidationConstants.VALIDATION_MESSAGE,
+                        errors: errors,
+                        message: ValidationConstants.VALIDATION_MESSAGE
+                        );
+                    return new BadRequestObjectResult(response);
+                };
+            });
+            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+            services.AddOpenApi();
 
-			var databaseConnectionString = Environment.GetEnvironmentVariable(ConfigurationConstants.CONNECTION_STRING_DATABASE)
-					?? configuration[ConfigurationConstants.CONNECTION_STRING_DATABASE];
+            var databaseConnectionString = Environment.GetEnvironmentVariable(ConfigurationConstants.CONNECTION_STRING_DATABASE)
+                    ?? configuration[ConfigurationConstants.CONNECTION_STRING_DATABASE];
 
-			services.AddSqlServer<TalentInsightsContext>(databaseConnectionString);
-			services.AddRepositories();
+            services.AddSqlServer<TalentInsightsContext>(databaseConnectionString);
+            services.AddRepositories();
 
-			services.AddServices();
+            services.AddServices();
 
-			services.AddMiddlewares();
+            services.AddMiddlewares();
 
-			AddLogging(services);
+            services.AddLogging();
 
-			await Initialize(services);
-		}
+            services.AddAuth(configuration);
 
-		/// <summary>
-		/// Método que añade los middlewares de la aplicación
-		/// </summary>
-		/// <param name="services"></param>
-		public static void AddMiddlewares(this IServiceCollection services)
-		{
-			services.AddScoped<ErrorHandlerMiddleware>();
-		}
+            await Initialize(services);
+        }
 
-		/// <summary>
-		/// Método para añadir todo lo relacionado al logging
-		/// </summary>
-		/// <param name="services"></param>
-		public static void AddLogging(this IServiceCollection services)
-		{
-			services.AddSerilog();
+        /// <summary>
+        /// Método que añade los middlewares de la aplicación
+        /// </summary>
+        /// <param name="services"></param>
+        public static void AddMiddlewares(this IServiceCollection services)
+        {
+            services.AddScoped<ErrorHandlerMiddleware>();
+        }
 
-			Log.Logger = new LoggerConfiguration()
-				// File
-				.WriteTo.File(Path.Combine(Directory.GetCurrentDirectory(), "logs", "log.txt"), rollingInterval: RollingInterval.Day)
-				// Console
-				.WriteTo.Console()
-				.CreateLogger();
-		}
+        /// <summary>
+        /// Método para añadir todo lo relacionado al logging
+        /// </summary>
+        /// <param name="services"></param>
+        public static void AddLogging(this IServiceCollection services)
+        {
+            services.AddSerilog();
 
-		public async static Task Initialize(this IServiceCollection services)
-		{
-			var provider = services.BuildServiceProvider();
-			var scope = provider.CreateAsyncScope();
+            Log.Logger = new LoggerConfiguration()
+                // File
+                .WriteTo.File(Path.Combine(Directory.GetCurrentDirectory(), "logs", "log.txt"), rollingInterval: RollingInterval.Day)
+                // Console
+                .WriteTo.Console()
+                .CreateLogger();
+        }
 
-			var collaboratorService = scope.ServiceProvider.GetRequiredService<ICollaboratorService>();
-			await collaboratorService.CreateFirstUser();
-		}
+        public async static Task Initialize(this IServiceCollection services)
+        {
+            var provider = services.BuildServiceProvider();
+            var scope = provider.CreateAsyncScope();
 
-		public static void AddAuth(IServiceCollection services, IConfiguration configuration)
-		{
-			services.AddAuthentication(builder =>
-			{
-				builder.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-				builder.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-			}).AddJwtBearer(builder =>
-			{
-				var issuer = Environment.GetEnvironmentVariable(ConfigurationConstants.JWT_ISSUER)
-					?? configuration[ConfigurationConstants.JWT_ISSUER]
-					?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.JWT_ISSUER));
+            var collaboratorService = scope.ServiceProvider.GetRequiredService<ICollaboratorService>();
+            await collaboratorService.CreateFirstUser();
+        }
 
-				var audience = Environment.GetEnvironmentVariable(ConfigurationConstants.JWT_AUDIENCE)
-					?? configuration[ConfigurationConstants.JWT_AUDIENCE]
-					?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.JWT_AUDIENCE));
+        public static void AddAuth(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddAuthentication(builder =>
+            {
+                builder.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                builder.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
-				var privateKey = Environment.GetEnvironmentVariable(ConfigurationConstants.JWT_PRIVATE_KEY)
-					?? configuration[ConfigurationConstants.JWT_PRIVATE_KEY]
-					?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.JWT_PRIVATE_KEY));
 
-				var expirationInMinutes = Environment.GetEnvironmentVariable(ConfigurationConstants.JWT_PRIVATE_KEY)
-					?? configuration[ConfigurationConstants.JWT_PRIVATE_KEY]
-					?? "10";
+            }).AddJwtBearer(builder =>
+            {
+                var issuer = Environment.GetEnvironmentVariable(ConfigurationConstants.JWT_ISSUER)
+                    ?? configuration[ConfigurationConstants.JWT_ISSUER]
+                    ?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.JWT_ISSUER));
 
-				builder.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-				{
-					ValidateIssuer = true,
-					ValidIssuer = "http://localhost:5063"
-				};
-			});
-		}
-	}
+                var audience = Environment.GetEnvironmentVariable(ConfigurationConstants.JWT_AUDIENCE)
+                    ?? configuration[ConfigurationConstants.JWT_AUDIENCE]
+                    ?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.JWT_AUDIENCE));
+
+                var privateKey = Environment.GetEnvironmentVariable(ConfigurationConstants.JWT_PRIVATE_KEY)
+                    ?? configuration[ConfigurationConstants.JWT_PRIVATE_KEY]
+                    ?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.JWT_PRIVATE_KEY));
+
+                builder.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = issuer,
+                    ValidateAudience = true,
+                    ValidAudience = audience,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(privateKey)),
+                    ClockSkew = TimeSpan.Zero
+                };
+                builder.Events = new JwtBearerEvents
+                {
+                    OnChallenge = async context =>
+                    {
+                        throw new UnauthorizedException(ResponseConstants.AUTH_TOKEN_NOT_FOUND);
+                    }
+                };
+            });
+
+            services.AddAuthorization();
+        }
+    }
 }

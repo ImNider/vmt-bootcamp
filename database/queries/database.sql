@@ -27,7 +27,7 @@ CREATE TABLE Collaborators (
     IsActive      BIT                NOT NULL DEFAULT 1,
     CreatedAt     DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME(),
     UpdatedAt     DATETIME2          NULL DEFAULT SYSUTCDATETIME(),
-    DeleteAt      DATETIME2          NULL DEFAULT SYSUTCDATETIME(),
+    DeletedAt      DATETIME2          NULL DEFAULT SYSUTCDATETIME(),
 
     CONSTRAINT PK_Collaborators PRIMARY KEY (Id)
 );
