@@ -6,22 +6,32 @@ namespace TalentInsights.Application.Helpers
 {
     public static class CacheHelper
     {
-        public static CacheKey AuthToken(string token, TimeSpan expiration)
+        public static CacheKey AuthTokenCreation(string token, TimeSpan expiration)
         {
             return new CacheKey
             {
-                Key = $"auth:tokens:{token}",
+                Key = AuthTokenKey(token),
                 Expiration = expiration
             };
         }
 
-        public static CacheKey AuthRefreshToken(string value, IConfiguration configuration)
+        public static CacheKey AuthRefreshTokenCreation(string value, IConfiguration configuration)
         {
             return new CacheKey
             {
-                Key = $"auth:refresh_tokens:{value}",
+                Key = AuthRefreshTokenKey(value),
                 Expiration = TimeSpan.FromMinutes(Convert.ToInt32(configuration[ConfigurationConstants.AUTH_REFRESH_TOKEN_EXPIRATION_IN_DAYS] ?? "30"))
             };
+        }
+
+        public static string AuthRefreshTokenKey(string value)
+        {
+            return $"auth:refresh_tokens:{value}";
+        }
+
+        public static string AuthTokenKey(string value)
+        {
+            return $"auth:tokens:{value}";
         }
     }
 }

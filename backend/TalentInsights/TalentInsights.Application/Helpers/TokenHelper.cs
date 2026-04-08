@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Text;
 using TalentInsights.Application.Interfaces.Services;
 using TalentInsights.Application.Models.Helpers;
-using TalentInsights.Domain.Database.SqlServer.Entities;
+using TalentInsights.Shared;
 using TalentInsights.Shared.Constants;
 using TalentInsights.Shared.Helpers;
 
@@ -14,16 +14,14 @@ namespace TalentInsights.Application.Helpers
     public static class TokenHelper
     {
         public static readonly Random rnd = new();
-        public static string Create(Collaborator collaborator, IConfiguration configuration, ICacheService cacheService)
+        public static string Create(Guid collaboratorId, IConfiguration configuration, ICacheService cacheService)
         {
             var tokenConfiguration = Configuration(configuration);
             var signingCredentials = new SigningCredentials(tokenConfiguration.SecurityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
-                new Claim(ClaimTypes.Role, "Administrator"),
-                new Claim(ClaimTypes.Email, collaborator.Email),
-                new Claim(ClaimsConstants.COLLABORATOR_ID, collaborator.Id.ToString()),
+                new Claim(ClaimsConstants.COLLABORATOR_ID, collaboratorId.ToString()),
             };
 
             var securityToken = new JwtSecurityToken(
@@ -34,8 +32,22 @@ namespace TalentInsights.Application.Helpers
                 claims: claims
                 );
             var token = new JwtSecurityTokenHandler().WriteToken(securityToken);
-            var cacheKey = CacheHelper.AuthToken(token, tokenConfiguration.ExpirationTimeSpan);
+            var cacheKey = CacheHelper.AuthTokenCreation(token, tokenConfiguration.ExpirationTimeSpan);
             cacheService.Create(cacheKey.Key, cacheKey.Expiration, token);
+
+            return token;
+        }
+
+        public static string CreateRefresh(Guid collaboratorId, IConfiguration configuration, ICacheService cacheService)
+        {
+            var token = Generate.RandomText(100);
+            var cacheKey = CacheHelper.AuthRefreshTokenCreation(token, configuration);
+
+            cacheService.Create(cacheKey.Key, cacheKey.Expiration, new RefreshToken
+            {
+                CollaboratorId = collaboratorId,
+                ExpirationInDays = cacheKey.Expiration
+            });
 
             return token;
         }
