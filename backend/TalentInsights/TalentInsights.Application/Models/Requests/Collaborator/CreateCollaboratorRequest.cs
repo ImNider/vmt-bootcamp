@@ -18,5 +18,11 @@ namespace TalentInsights.Application.Models.Requests.Collaborator
         [MaxLength(100, ErrorMessage = ValidationConstants.MAX_LENGTH)]
         [MinLength(5, ErrorMessage = ValidationConstants.MIN_LENGTH)]
         public string Position { get; set; } = null!;
+
+        [Required(ErrorMessage = ValidationConstants.REQUIRED)]
+        [EmailAddress(ErrorMessage = ValidationConstants.EMAIL_ADDRESS)]
+        [MaxLength(100, ErrorMessage = ValidationConstants.MAX_LENGTH)]
+        [MinLength(5, ErrorMessage = ValidationConstants.MIN_LENGTH)]
+        public string Email { get; set; } = null!;
     }
 }

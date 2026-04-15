@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TalentInsights.Domain.Database.SqlServer.Entities;
 
 namespace TalentInsights.Domain.Database.SqlServer.Context;
@@ -20,7 +18,7 @@ public partial class TalentInsightsContext : DbContext
 
     public virtual DbSet<CollaboratorHistory> CollaboratorHistories { get; set; }
 
-    public virtual DbSet<CollaboratorPermission> CollaboratorPermissions { get; set; }
+    public virtual DbSet<CollaboratorRole> CollaboratorRoles { get; set; }
 
     public virtual DbSet<CollaboratorSkill> CollaboratorSkills { get; set; }
 
@@ -38,15 +36,15 @@ public partial class TalentInsightsContext : DbContext
 
     public virtual DbSet<ProjectMessage> ProjectMessages { get; set; }
 
+    public virtual DbSet<Role> Roles { get; set; }
+
+    public virtual DbSet<RolePermission> RolePermissions { get; set; }
+
     public virtual DbSet<Skill> Skills { get; set; }
 
     public virtual DbSet<Team> Teams { get; set; }
 
     public virtual DbSet<TeamMember> TeamMembers { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=localhost,1433;User=sa;Password=Admin1234@;Database=TalentInsights;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -54,7 +52,6 @@ public partial class TalentInsightsContext : DbContext
         {
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.CreatedAt).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.DeletedAt).HasDefaultValueSql("(sysutcdatetime())");
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.FullName).HasMaxLength(150);
             entity.Property(e => e.GitlabProfile).HasMaxLength(255);
@@ -83,23 +80,27 @@ public partial class TalentInsightsContext : DbContext
                 .HasConstraintName("FK_CollaboratorHistory_Collaborator");
         });
 
-        modelBuilder.Entity<CollaboratorPermission>(entity =>
+        modelBuilder.Entity<CollaboratorRole>(entity =>
         {
-            entity.HasKey(e => new { e.CollaboratorId, e.PermissionId });
+            entity.HasKey(e => new { e.CollaboratorId, e.RoleId });
+
+            entity.HasIndex(e => e.AssignedBy, "IX_CollaboratorRoles_AssignedBy");
+
+            entity.HasIndex(e => e.RoleId, "IX_CollaboratorRoles_RoleId");
 
             entity.Property(e => e.AssignedAt).HasDefaultValueSql("(sysutcdatetime())");
 
-            entity.HasOne(d => d.AssignedByNavigation).WithMany(p => p.CollaboratorPermissionAssignedByNavigations)
+            entity.HasOne(d => d.AssignedByNavigation).WithMany(p => p.CollaboratorRoleAssignedByNavigations)
                 .HasForeignKey(d => d.AssignedBy)
-                .HasConstraintName("FK_CollaboratorPermissions_AssignedBy");
+                .HasConstraintName("FK_CollaboratorRoles_AssignedBy");
 
-            entity.HasOne(d => d.Collaborator).WithMany(p => p.CollaboratorPermissionCollaborators)
+            entity.HasOne(d => d.Collaborator).WithMany(p => p.CollaboratorRoleCollaborators)
                 .HasForeignKey(d => d.CollaboratorId)
-                .HasConstraintName("FK_CollaboratorPermissions_Collaborator");
+                .HasConstraintName("FK_CollaboratorRoles_Collaborator");
 
-            entity.HasOne(d => d.Permission).WithMany(p => p.CollaboratorPermissions)
-                .HasForeignKey(d => d.PermissionId)
-                .HasConstraintName("FK_CollaboratorPermissions_Permission");
+            entity.HasOne(d => d.Role).WithMany(p => p.CollaboratorRoles)
+                .HasForeignKey(d => d.RoleId)
+                .HasConstraintName("FK_CollaboratorRoles_Role");
         });
 
         modelBuilder.Entity<CollaboratorSkill>(entity =>
@@ -259,6 +260,35 @@ public partial class TalentInsightsContext : DbContext
             entity.HasOne(d => d.Project).WithMany(p => p.ProjectMessages)
                 .HasForeignKey(d => d.ProjectId)
                 .HasConstraintName("FK_ProjectMessages_Project");
+        });
+
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.HasIndex(e => e.Name, "UQ_Roles_Name").IsUnique();
+
+            entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(sysutcdatetime())");
+            entity.Property(e => e.Description).HasMaxLength(500);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.Name).HasMaxLength(100);
+            entity.Property(e => e.UpdatedAt).HasDefaultValueSql("(sysutcdatetime())");
+        });
+
+        modelBuilder.Entity<RolePermission>(entity =>
+        {
+            entity.HasKey(e => new { e.RoleId, e.PermissionId });
+
+            entity.HasIndex(e => e.PermissionId, "IX_RolePermissions_PermissionId");
+
+            entity.Property(e => e.AssignedAt).HasDefaultValueSql("(sysutcdatetime())");
+
+            entity.HasOne(d => d.Permission).WithMany(p => p.RolePermissions)
+                .HasForeignKey(d => d.PermissionId)
+                .HasConstraintName("FK_RolePermissions_Permission");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.RolePermissions)
+                .HasForeignKey(d => d.RoleId)
+                .HasConstraintName("FK_RolePermissions_Role");
         });
 
         modelBuilder.Entity<Skill>(entity =>

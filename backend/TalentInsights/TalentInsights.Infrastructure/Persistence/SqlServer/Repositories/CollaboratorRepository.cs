@@ -14,9 +14,6 @@ namespace TalentInsights.Infrastructure.Persistence.SqlServer.Repositories
                 // insert
                 await context.Collaborators.AddAsync(collaborator);
 
-                // execution // commit
-                await context.SaveChangesAsync();
-
                 return collaborator;
             }
             catch (Exception)
@@ -29,7 +26,10 @@ namespace TalentInsights.Infrastructure.Persistence.SqlServer.Repositories
         {
             try
             {
-                return await context.Collaborators.FirstOrDefaultAsync(x => x.Id == collaboratorId && x.DeletedAt == null);
+                return await context.Collaborators
+                    .Include(collaborator => collaborator.CollaboratorRoleCollaborators)
+                    .ThenInclude(collaboratorRoles => collaboratorRoles.Role)
+                    .FirstOrDefaultAsync(x => x.Id == collaboratorId && x.DeletedAt == null);
             }
             catch (Exception)
             {
@@ -41,10 +41,39 @@ namespace TalentInsights.Infrastructure.Persistence.SqlServer.Repositories
         {
             try
             {
-                return await context.Collaborators.FirstOrDefaultAsync(x => x.Email == email && x.DeletedAt == null);
+                return await context.Collaborators
+                    .Include(collaborator => collaborator.CollaboratorRoleCollaborators)
+                    .ThenInclude(collaboratorRoles => collaboratorRoles.Role)
+                    .FirstOrDefaultAsync(x => x.Email == email && x.DeletedAt == null);
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public async Task<Role?> GetRole(string name)
+        {
+            try
+            {
+                return await context.Roles.FirstOrDefaultAsync(x => x.Name == name);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<Role?> GetRole(Guid id)
+        {
+            try
+            {
+                return await context.Roles.FirstOrDefaultAsync(x => x.Id == id);
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }
@@ -92,7 +121,6 @@ namespace TalentInsights.Infrastructure.Persistence.SqlServer.Repositories
             try
             {
                 context.Collaborators.Update(collaborator);
-                await context.SaveChangesAsync();
 
                 return collaborator;
             }

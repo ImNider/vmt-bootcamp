@@ -14,7 +14,7 @@ namespace TalentInsights.Application.Helpers
     public static class TokenHelper
     {
         public static readonly Random rnd = new();
-        public static string Create(Guid collaboratorId, IConfiguration configuration, ICacheService cacheService)
+        public static string Create(Guid collaboratorId, List<string> roles, IConfiguration configuration, ICacheService cacheService)
         {
             var tokenConfiguration = Configuration(configuration);
             var signingCredentials = new SigningCredentials(tokenConfiguration.SecurityKey, SecurityAlgorithms.HmacSha256);
@@ -22,6 +22,7 @@ namespace TalentInsights.Application.Helpers
             var claims = new[]
             {
                 new Claim(ClaimsConstants.COLLABORATOR_ID, collaboratorId.ToString()),
+                new Claim(ClaimTypes.Role, roles[0])
             };
 
             var securityToken = new JwtSecurityToken(

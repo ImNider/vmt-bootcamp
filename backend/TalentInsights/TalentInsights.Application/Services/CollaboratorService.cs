@@ -4,139 +4,164 @@ using TalentInsights.Application.Interfaces.Services;
 using TalentInsights.Application.Models.DTOs;
 using TalentInsights.Application.Models.Requests.Collaborator;
 using TalentInsights.Application.Models.Responses;
+using TalentInsights.Domain.Database;
 using TalentInsights.Domain.Database.SqlServer.Entities;
 using TalentInsights.Domain.Exceptions;
-using TalentInsights.Domain.Interfaces.Repositories;
 using TalentInsights.Shared;
 using TalentInsights.Shared.Constants;
 using TalentInsights.Shared.Helpers;
 
 namespace TalentInsights.Application.Services
 {
-	public class CollaboratorService(ICollaboratorRepository repository, IConfiguration configuration) : ICollaboratorService
-	{
-		public async Task<GenericResponse<CollaboratorDto>> Create(CreateCollaboratorRequest model)
-		{
-			var create = await repository.Create(new Collaborator
-			{
-				GitlabProfile = model.GitlabProfile,
-				FullName = model.FullName,
-				Position = model.Position
-			});
+    public class CollaboratorService(IUnitOfWork uow, IConfiguration configuration, SMTP smtp) : ICollaboratorService
+    {
+        public async Task<GenericResponse<CollaboratorDto>> Create(CreateCollaboratorRequest model)
+        {
+            var password = Generate.RandomText(32);
+            var create = await uow.collaboratorRepository.Create(new Collaborator
+            {
+                GitlabProfile = model.GitlabProfile,
+                FullName = model.FullName,
+                Position = model.Position,
+                Email = model.Email,
+                Password = password
+            });
 
-			return ResponseHelper.Create(Map(create));
-		}
+            await smtp.Send(
+                    model.Email,
+                    "Registro de usuario - TalentInsights",
+                    $"Su contraseña es {password}"
+                );
 
-		public async Task<GenericResponse<bool>> Delete(Guid collaboratorId)
-		{
-			var collaborator = await GetCollaborator(collaboratorId);
+            await uow.SaveChangesAsync();
 
-			collaborator.DeletedAt = DateTimeHelper.UtcNow();
-			await repository.Update(collaborator);
+            return ResponseHelper.Create(Map(create));
+        }
 
-			return ResponseHelper.Create(true);
-		}
+        public async Task<GenericResponse<bool>> Delete(Guid collaboratorId)
+        {
+            var collaborator = await GetCollaborator(collaboratorId);
 
-		public GenericResponse<List<CollaboratorDto>> Get(FilterColaboratorRequest model)
-		{
-			var queryable = repository.Queryable();
+            collaborator.DeletedAt = DateTimeHelper.UtcNow();
+            await uow.collaboratorRepository.Update(collaborator);
 
-			// Filtrado de nombre
-			if (!string.IsNullOrWhiteSpace(model.FullName))
-			{
-				queryable = queryable.Where(x => x.FullName.Contains(model.FullName ?? ""));
-			}
+            return ResponseHelper.Create(true);
+        }
 
-			// Filtrado de perfil de gitlab
-			if (!string.IsNullOrWhiteSpace(model.GitlabProfile))
-			{
-				queryable = queryable.Where(x => x.GitlabProfile != null && x.GitlabProfile.Contains(model.GitlabProfile ?? ""));
-			}
+        public GenericResponse<List<CollaboratorDto>> Get(FilterColaboratorRequest model)
+        {
+            var queryable = uow.collaboratorRepository.Queryable();
 
-			// Filtrado del cargo
-			if (!string.IsNullOrWhiteSpace(model.Position))
-			{
-				queryable = queryable.Where(x => x.Position.Contains(model.Position ?? ""));
-			}
+            // Filtrado de nombre
+            if (!string.IsNullOrWhiteSpace(model.FullName))
+            {
+                queryable = queryable.Where(x => x.FullName.Contains(model.FullName ?? ""));
+            }
 
-			// Realizar paginación y realizar consulta
-			var collaborators = queryable.Skip(model.Offset).Take(model.Limit).ToList();
+            // Filtrado de perfil de gitlab
+            if (!string.IsNullOrWhiteSpace(model.GitlabProfile))
+            {
+                queryable = queryable.Where(x => x.GitlabProfile != null && x.GitlabProfile.Contains(model.GitlabProfile ?? ""));
+            }
 
-			// Mapear colaboradores
-			List<CollaboratorDto> mapped = [];
-			foreach (var collaborator in collaborators)
-			{
-				mapped.Add(Map(collaborator));
-			}
+            // Filtrado del cargo
+            if (!string.IsNullOrWhiteSpace(model.Position))
+            {
+                queryable = queryable.Where(x => x.Position.Contains(model.Position ?? ""));
+            }
 
-			return ResponseHelper.Create(mapped);
-		}
+            // Realizar paginación y realizar consulta
+            var collaborators = queryable.Skip(model.Offset).Take(model.Limit).ToList();
 
-		public async Task<GenericResponse<CollaboratorDto>> Get(Guid collaboratorId)
-		{
-			var collaborator = await GetCollaborator(collaboratorId);
-			return ResponseHelper.Create(Map(collaborator));
-		}
+            // Mapear colaboradores
+            List<CollaboratorDto> mapped = [];
+            foreach (var collaborator in collaborators)
+            {
+                mapped.Add(Map(collaborator));
+            }
 
-		public async Task<GenericResponse<CollaboratorDto>> Update(Guid collaboratorId, UpdateCollaboratorRequest model)
-		{
-			var collaborator = await GetCollaborator(collaboratorId);
+            return ResponseHelper.Create(mapped);
+        }
 
-			collaborator.GitlabProfile = model.GitlabProfile ?? collaborator.GitlabProfile;
-			collaborator.Position = model.Position ?? collaborator.Position;
-			collaborator.FullName = model.FullName ?? collaborator.FullName;
+        public async Task<GenericResponse<CollaboratorDto>> Get(Guid collaboratorId)
+        {
+            var collaborator = await GetCollaborator(collaboratorId);
+            return ResponseHelper.Create(Map(collaborator));
+        }
 
-			collaborator.UpdatedAt = DateTimeHelper.UtcNow();
+        public async Task<GenericResponse<CollaboratorDto>> Update(Guid collaboratorId, UpdateCollaboratorRequest model)
+        {
+            var collaborator = await GetCollaborator(collaboratorId);
 
-			var update = await repository.Update(collaborator);
+            collaborator.GitlabProfile = model.GitlabProfile ?? collaborator.GitlabProfile;
+            collaborator.Position = model.Position ?? collaborator.Position;
+            collaborator.FullName = model.FullName ?? collaborator.FullName;
+            collaborator.Email = model.Email ?? collaborator.Email;
 
-			return ResponseHelper.Create(Map(update));
-		}
+            collaborator.UpdatedAt = DateTimeHelper.UtcNow();
 
-		private async Task<Collaborator> GetCollaborator(Guid collaboratorId)
-		{
-			return await repository.Get(collaboratorId)
-				?? throw new NotFoundException(ResponseConstants.COLLABORATOR_NOT_EXISTS);
-		}
+            var update = await uow.collaboratorRepository.Update(collaborator);
 
-		private static CollaboratorDto Map(Collaborator collaborator)
-		{
-			return new CollaboratorDto
-			{
-				CollaboratorId = collaborator.Id,
-				FullName = collaborator.FullName,
-				Position = collaborator.Position,
-				GitlabProfile = collaborator.GitlabProfile,
-				JoinedAt = collaborator.JoinedAt,
-				CreatedAt = collaborator.CreatedAt,
-				IsActive = collaborator.IsActive
-			};
-		}
+            await uow.SaveChangesAsync();
 
-		public async Task CreateFirstUser()
-		{
-			var hasCreated = await repository.HasCreated();
-			if (hasCreated) return;
+            return ResponseHelper.Create(Map(update));
+        }
 
-			var fullName = configuration[ConfigurationConstants.FIRST_APP_TIME_USER_FULLNAME]
-				?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.FIRST_APP_TIME_USER_FULLNAME));
+        private async Task<Collaborator> GetCollaborator(Guid collaboratorId)
+        {
+            return await uow.collaboratorRepository.Get(collaboratorId)
+                ?? throw new NotFoundException(ResponseConstants.COLLABORATOR_NOT_EXISTS);
+        }
 
-			var email = configuration[ConfigurationConstants.FIRST_APP_TIME_USER_EMAIL]
-				?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.FIRST_APP_TIME_USER_EMAIL));
+        private static CollaboratorDto Map(Collaborator collaborator)
+        {
+            return new CollaboratorDto
+            {
+                CollaboratorId = collaborator.Id,
+                FullName = collaborator.FullName,
+                Position = collaborator.Position,
+                GitlabProfile = collaborator.GitlabProfile,
+                JoinedAt = collaborator.JoinedAt,
+                CreatedAt = collaborator.CreatedAt,
+                IsActive = collaborator.IsActive
+            };
+        }
 
-			var position = configuration[ConfigurationConstants.FIRST_APP_TIME_USER_POSITION]
-				?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.FIRST_APP_TIME_USER_POSITION));
+        public async Task CreateFirstUser()
+        {
+            var hasCreated = await uow.collaboratorRepository.HasCreated();
+            if (hasCreated) return;
 
-			var password = configuration[ConfigurationConstants.FIRST_APP_TIME_USER_PASSWORD]
-				?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.FIRST_APP_TIME_USER_PASSWORD));
+            var fullName = configuration[ConfigurationConstants.FIRST_APP_TIME_USER_FULLNAME]
+                ?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.FIRST_APP_TIME_USER_FULLNAME));
 
-			await repository.Create(new Collaborator
-			{
-				FullName = fullName,
-				Email = email,
-				Position = position,
-				Password = Hasher.HashPassword(password)
-			});
-		}
-	}
+            var email = configuration[ConfigurationConstants.FIRST_APP_TIME_USER_EMAIL]
+                ?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.FIRST_APP_TIME_USER_EMAIL));
+
+            var position = configuration[ConfigurationConstants.FIRST_APP_TIME_USER_POSITION]
+                ?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.FIRST_APP_TIME_USER_POSITION));
+
+            var password = configuration[ConfigurationConstants.FIRST_APP_TIME_USER_PASSWORD]
+                ?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.FIRST_APP_TIME_USER_PASSWORD));
+
+            var adminRole = await uow.collaboratorRepository.GetRole(RoleConstants.Admin)
+                ?? throw new Exception(ResponseConstants.RoleNotFound(RoleConstants.Admin));
+
+            await uow.collaboratorRepository.Create(new Collaborator
+            {
+                FullName = fullName,
+                Email = email,
+                Position = position,
+                Password = Hasher.HashPassword(password),
+                CollaboratorRoleCollaborators = [
+                    new CollaboratorRole
+                    {
+                        RoleId = adminRole.Id,
+                    }
+                ]
+            });
+
+            await uow.SaveChangesAsync();
+        }
+    }
 }

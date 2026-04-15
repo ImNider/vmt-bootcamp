@@ -7,7 +7,7 @@ namespace TalentInsights.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Admin")]
     public class CollaboratorsController(ICollaboratorService collaboratorService) : ControllerBase
     {
         [HttpPost]

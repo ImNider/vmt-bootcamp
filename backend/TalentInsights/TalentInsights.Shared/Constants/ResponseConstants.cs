@@ -5,6 +5,9 @@ namespace TalentInsights.Shared.Constants
         // Collaborators
         public const string COLLABORATOR_NOT_EXISTS = "El colaborador no existe";
 
+        // Roles
+        public static string RoleNotFound(string name) => $"El rol {name} no existe";
+
         // Projects
         public const string PROJECT_NOT_EXISTS = "El proyecto no existe";
 
