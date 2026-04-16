@@ -69,6 +69,26 @@ El Backend de este Bootcamp es desarrollado con .NET
 	- Serilog.Sinks.Console
 	- Serilog.Sinks.MSSqlServer
 
+### Secretos de la aplicación
+Estos datos se almacenan usando `user-secrets` para no exponerlos en el repositorio.
+```json
+{
+  "Jwt": {
+    "PrivateKey": "private-key"
+  },
+  "SMTP": {
+    "Host": "host",
+    "From": "example@example.com",
+    "Port": "587",
+    "User": "user",
+    "Password": "password"
+  },
+  "ConnectionStrings": {
+    "Database": "connection-string"
+  }
+}
+```
+
 ### Comandos en la Terminal
 - Scaffolding:
 ```bash
