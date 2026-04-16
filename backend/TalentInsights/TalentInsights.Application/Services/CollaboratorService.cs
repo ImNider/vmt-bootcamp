@@ -4,6 +4,7 @@ using TalentInsights.Application.Interfaces.Services;
 using TalentInsights.Application.Models.DTOs;
 using TalentInsights.Application.Models.Requests.Collaborator;
 using TalentInsights.Application.Models.Responses;
+using TalentInsights.Application.Queries;
 using TalentInsights.Domain.Database;
 using TalentInsights.Domain.Database.SqlServer.Entities;
 using TalentInsights.Domain.Exceptions;
@@ -13,7 +14,7 @@ using TalentInsights.Shared.Helpers;
 
 namespace TalentInsights.Application.Services
 {
-    public class CollaboratorService(IUnitOfWork uow, IConfiguration configuration, SMTP smtp) : ICollaboratorService
+    public class CollaboratorService(IUnitOfWork uow, IEmailTemplateService emailTemplateService, IConfiguration configuration, SMTP smtp) : ICollaboratorService
     {
         public async Task<GenericResponse<CollaboratorDto>> Create(CreateCollaboratorRequest model)
         {
@@ -26,6 +27,8 @@ namespace TalentInsights.Application.Services
                 Email = model.Email,
                 Password = password
             });
+
+            //var template = emailTemplateService.Get(EmailTem)
 
             await smtp.Send(
                     model.Email,
@@ -50,28 +53,19 @@ namespace TalentInsights.Application.Services
 
         public GenericResponse<List<CollaboratorDto>> Get(FilterColaboratorRequest model)
         {
-            var queryable = uow.collaboratorRepository.Queryable();
+            var queryable = uow.collaboratorRepository
+                .Queryable()
+                .ApplyQuery(model);
 
-            // Filtrado de nombre
-            if (!string.IsNullOrWhiteSpace(model.FullName))
-            {
-                queryable = queryable.Where(x => x.FullName.Contains(model.FullName ?? ""));
-            }
-
-            // Filtrado de perfil de gitlab
-            if (!string.IsNullOrWhiteSpace(model.GitlabProfile))
-            {
-                queryable = queryable.Where(x => x.GitlabProfile != null && x.GitlabProfile.Contains(model.GitlabProfile ?? ""));
-            }
-
-            // Filtrado del cargo
-            if (!string.IsNullOrWhiteSpace(model.Position))
-            {
-                queryable = queryable.Where(x => x.Position.Contains(model.Position ?? ""));
-            }
 
             // Realizar paginación y realizar consulta
-            var collaborators = queryable.Skip(model.Offset).Take(model.Limit).ToList();
+            var collaborators = queryable
+                .Skip(model.Offset)
+                .Take(model.Limit)
+                .Select(collaborator => Map(collaborator))
+                .ToList();
+
+            var count = uow.collaboratorRepository.Queryable().Count();
 
             // Mapear colaboradores
             List<CollaboratorDto> mapped = [];
