@@ -5,88 +5,76 @@ using TalentInsights.Domain.Interfaces.Repositories;
 
 namespace TalentInsights.Infrastructure.Persistence.SqlServer.Repositories
 {
-    public class CollaboratorRepository(TalentInsightsContext context) : GenericRepository<Collaborator>(context), ICollaboratorRepository
-    {
+	public class CollaboratorRepository(TalentInsightsContext context) : GenericRepository<Collaborator>(context), ICollaboratorRepository
+	{
+		public async Task<Collaborator?> Get(Guid collaboratorId)
+		{
+			try
+			{
+				return await context.Collaborators
+					.Include(collaborator => collaborator.CollaboratorRoleCollaborators)
+					.ThenInclude(collaboratorRoles => collaboratorRoles.Role)
+					.FirstOrDefaultAsync(x => x.Id == collaboratorId && x.DeletedAt == null);
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
 
-        public async Task<Collaborator?> Get(Guid collaboratorId)
-        {
-            try
-            {
-                return await context.Collaborators
-                    .Include(collaborator => collaborator.CollaboratorRoleCollaborators)
-                    .ThenInclude(collaboratorRoles => collaboratorRoles.Role)
-                    .FirstOrDefaultAsync(x => x.Id == collaboratorId && x.DeletedAt == null);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+		public async Task<Collaborator?> Get(string email)
+		{
+			try
+			{
+				return await context.Collaborators
+					.Include(collaborator => collaborator.CollaboratorRoleCollaborators)
+					.ThenInclude(collaboratorRoles => collaboratorRoles.Role)
+					.FirstOrDefaultAsync(x => x.Email == email && x.DeletedAt == null);
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
 
-        public async Task<Collaborator?> Get(string email)
-        {
-            try
-            {
-                return await context.Collaborators
-                    .Include(collaborator => collaborator.CollaboratorRoleCollaborators)
-                    .ThenInclude(collaboratorRoles => collaboratorRoles.Role)
-                    .FirstOrDefaultAsync(x => x.Email == email && x.DeletedAt == null);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+		public async Task<Role?> GetRole(string name)
+		{
+			return await context.Roles.FirstOrDefaultAsync(x => x.Name == name);
+		}
 
-        public async Task<Role?> GetRole(string name)
-        {
-            try
-            {
-                return await context.Roles.FirstOrDefaultAsync(x => x.Name == name);
-            }
-            catch (Exception)
-            {
+		public async Task<Role?> GetRole(Guid id)
+		{
+			return await context.Roles.FirstOrDefaultAsync(x => x.Id == id);
+		}
 
-                throw;
-            }
-        }
+		public async Task<bool> HasCreated()
+		{
+			try
+			{
+				return await context.Collaborators.AnyAsync();
+			}
+			catch
+			{
+				throw;
+			}
+		}
 
-        public async Task<Role?> GetRole(Guid id)
-        {
-            try
-            {
-                return await context.Roles.FirstOrDefaultAsync(x => x.Id == id);
-            }
-            catch (Exception)
-            {
+		public async Task<bool> IfExists(Guid collaboratorId)
+		{
+			try
+			{
+				return await context.Collaborators.AnyAsync(x => x.Id == collaboratorId);
+			}
+			catch (Exception)
+			{
 
-                throw;
-            }
-        }
+				throw;
+			}
+		}
 
-        public async Task<bool> HasCreated()
-        {
-            try
-            {
-                return await context.Collaborators.AnyAsync();
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
-        public async Task<bool> IfExists(Guid collaboratorId)
-        {
-            try
-            {
-                return await context.Collaborators.AnyAsync(x => x.Id == collaboratorId);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-    }
+		public async Task<bool> IfExists(string email)
+		{
+			return await context.Collaborators.AnyAsync(x => x.Email == email);
+		}
+	}
 }

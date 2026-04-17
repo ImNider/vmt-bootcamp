@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Database\SqlServer\Repositories\**" />
-    <EmbeddedResource Remove="Database\SqlServer\Repositories\**" />
-    <None Remove="Database\SqlServer\Repositories\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Database\SqlServer\Entities\" />
     <Folder Include="Database\SqlServer\Context\" />
   </ItemGroup>

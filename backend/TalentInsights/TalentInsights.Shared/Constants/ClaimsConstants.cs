@@ -1,7 +1,7 @@
-﻿namespace TalentInsights.Shared.Constants
+namespace TalentInsights.Shared.Constants
 {
-    public static class ClaimsConstants
-    {
-        public const string COLLABORATOR_ID = "CollaboratorId";
-    }
+	public static class ClaimsConstants
+	{
+		public const string COLLABORATOR_ID = "CollaboratorId";
+	}
 }

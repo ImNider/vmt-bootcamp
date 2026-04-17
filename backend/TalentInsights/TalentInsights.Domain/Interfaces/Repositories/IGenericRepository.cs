@@ -1,10 +1,10 @@
-﻿namespace TalentInsights.Domain.Interfaces.Repositories
+namespace TalentInsights.Domain.Interfaces.Repositories
 {
-    public interface IGenericRepository<T> where T : class
-    {
-        public Task<T> Create(T entity);
-        public IQueryable<T> Queryable();
-        public Task<T> Update(T entity);
-        public Task<bool> Delete(T entity);
-    }
+	public interface IGenericRepository<T> where T : class
+	{
+		Task<T> Create(T entity);
+		Task<T> Update(T entity);
+		IQueryable<T> Queryable();
+		Task<bool> Delete(T entity);
+	}
 }

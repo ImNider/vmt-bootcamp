@@ -1,7 +1,7 @@
-﻿namespace TalentInsights.Domain.Exceptions
+namespace TalentInsights.Domain.Exceptions
 {
-    public class UnauthorizedException : Exception
-    {
-        public UnauthorizedException(string message) : base(message) { }
-    }
+	public class UnauthorizedException : Exception
+	{
+		public UnauthorizedException(string message) : base(message) { }
+	}
 }

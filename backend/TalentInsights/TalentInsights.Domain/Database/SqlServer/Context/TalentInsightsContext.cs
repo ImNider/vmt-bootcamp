@@ -50,7 +50,7 @@ public partial class TalentInsightsContext : DbContext
     {
         modelBuilder.Entity<Collaborator>(entity =>
         {
-            entity.HasIndex(e => e.Email, "UQ__Collabor__A9D1053403BCDCE3").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Collabor__A9D105343FB487E9").IsUnique();
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.CreatedAt).HasDefaultValueSql("(sysutcdatetime())");
@@ -127,7 +127,7 @@ public partial class TalentInsightsContext : DbContext
             entity.HasNoKey();
 
             entity.Property(e => e.Body).HasColumnType("text");
-            entity.Property(e => e.CreateAt).HasDefaultValueSql("(sysutcdatetime())");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(sysutcdatetime())");
             entity.Property(e => e.EmailTemplateId).ValueGeneratedOnAdd();
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
