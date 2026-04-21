@@ -1,11 +1,11 @@
-using TalentInsights.Application.Models.Requests.Projects;
+using TalentInsights.Application.Models.Requests.Teams;
 using TalentInsights.Domain.Database.SqlServer.Entities;
 
 namespace TalentInsights.Application.Queries
 {
-	public static class ProjectFilterQuery
+	public static class TeamFilterQuery
 	{
-		public static IQueryable<Project> ApplyQuery(this IQueryable<Project> queryable, FilterProjectRequest model)
+		public static IQueryable<Team> ApplyQuery(this IQueryable<Team> queryable, FilterTeamRequest model)
 		{
 			if (model.Id.HasValue)
 			{
@@ -20,11 +20,6 @@ namespace TalentInsights.Application.Queries
 			if (!string.IsNullOrWhiteSpace(model.Description))
 			{
 				queryable = queryable.Where(x => x.Description != null && x.Description.Contains(model.Description));
-			}
-
-			if (!string.IsNullOrWhiteSpace(model.Status))
-			{
-				queryable = queryable.Where(x => x.Status.Contains(model.Status));
 			}
 
 			return queryable;
