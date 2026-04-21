@@ -648,6 +648,8 @@ dotnet ef dbcontext scaffold "Server=localhost,1433;User=sa;Password=Admin1234@;
 - https://www.uuidgenerator.net
 - https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
 - https://serilog.net
+- https://www.brevo.com/es/
+- https://render.com/
 - https://www.lastpass.com/es/features/password-generator
 - https://github.com/alenj0x1/net-ef
 
