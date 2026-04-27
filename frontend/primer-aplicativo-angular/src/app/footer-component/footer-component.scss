@@ -1,0 +1,19 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer{
+    background-color: rgb(32, 32, 32);
+    
+}
+
+.footer-list{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-item {
+    display: flex;
+    color: white;
+    padding: 20px;
+}

@@ -1,0 +1,22 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: rgb(32, 32, 32);
+}
+
+.header-list{
+    display: flex;
+}
+
+.header-logo {
+    width: 50px;
+    object-fit: contain;
+}
+
+.header-item {
+    display: flex;
+    color: white;
+    padding: 20px;
+}
