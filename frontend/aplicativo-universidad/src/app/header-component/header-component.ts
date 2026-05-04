@@ -9,13 +9,15 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   studentName:string = "Neider Vélez"
   appName:string = "Aplicativo Unisersitario"
+  loginStatus:boolean = false;
   loginCSS:string = "gray-text"
 
   login(): void {
-    if(this.loginCSS == "gray-text"){
-      this.loginCSS = "green-text"
+    this.loginStatus = !this.loginStatus;
+    if(this.loginStatus == true){
+      this.loginCSS = "green-text";
     }else{
-      this.loginCSS = "gray-text"
+      this.loginCSS = "gray-text";
     }
   }
 }
