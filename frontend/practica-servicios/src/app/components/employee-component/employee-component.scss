@@ -1,0 +1,34 @@
+* {
+    list-style: none;
+}
+
+hr {
+    border-color: black;
+}
+
+.contenedor {
+    margin-top: 30px;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 5%;
+    background-color: white;
+}
+
+.cabecera {
+    display: flex;
+    align-items: center;
+}
+
+.cabecera-empleado {
+    display: flex;
+    align-items: center;
+}
+
+.cabecera-empleado h2 {
+    margin-left: 10px;
+}
+
+input {
+    margin-left: 25px;
+    height: 15px;
+}

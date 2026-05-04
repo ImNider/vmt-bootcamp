@@ -1,23 +1,28 @@
-<h1> DEPARTMENTS </h1>
-<input type="text" [(ngModel)]="searchId">
-@if(loading){
-    <div>Cargando...</div>
-}
+<div class = "contenedor">
+    <div class = "cabecera">
+        <h1> DEPARTMENTS </h1>
+        <input type="text" [(ngModel)]="searchId">
+    </div>
+    @if(loading){
+        <div>Cargando...</div>
+    }
 
-@if(error){
-    <div>{{error}}</div>
-}
+    @if(error){
+        <div>{{error}}</div>
+    }
 
-@if(!loading && !error){
-    <ul>
-        @for(department of departments; track department.id){
-            @if(!searchId || department.id === searchId){
-                <h2>Id: <strong>{{department.id}}</strong></h2>
-                <li>Manager Name: <strong>{{department.managerName}}</strong></li>
-                <li>Description: <strong>{{department.description}}</strong></li>
-                <li>Name: <strong>{{department.name}}</strong></li>
-                <li>Created At: <strong>{{department.createdAt}}</strong></li>
+    @if(!loading && !error){
+        <ul>
+            @for(department of departments; track department.id){
+                @if(!searchId || department.id === searchId){
+                    <hr>
+                    <h2>Id: <strong>{{department.id}}</strong></h2>
+                    <li>Manager Name: <strong>{{department.managerName}}</strong></li>
+                    <li>Description: <strong>{{department.description}}</strong></li>
+                    <li>Name: <strong>{{department.name}}</strong></li>
+                    <li>Created At: <strong>{{department.createdAt}}</strong></li>
+                }
             }
-        }
-    </ul>
-}
+        </ul>
+    }
+</div>

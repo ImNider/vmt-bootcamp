@@ -1,0 +1,26 @@
+* {
+    list-style: none;
+}
+
+.contenedor {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 5%;
+    background-color: white;
+}
+
+hr {
+    border-color: black;
+}
+
+.cabecera {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    margin-left: 25px;
+    height: 15px;
+}
