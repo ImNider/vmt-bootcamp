@@ -1,0 +1,27 @@
+<h1> EMPLOYEES </h1>
+<input type="text" [(ngModel)]="searchId">
+@if(loading){
+    <div>Cargando...</div>
+}
+
+@if(error){
+    <div>{{error}}</div>
+}
+
+@if(!loading && !error){
+    <ul>
+        @for(employee of employees; track employee.id){
+            @if(!searchId || employee.id === searchId){
+                <h2>Id: <strong>{{employee.id}}</strong></h2>
+                <li>Salary: <strong>{{employee.salary}}</strong></li>
+                <li>Department: <strong>{{employee.department}}</strong></li>
+                <li>Position: <strong>{{employee.position}}</strong></li>
+                <li>Phone: <strong>{{employee.phone}}</strong></li>
+                <li>Email: <strong>{{employee.email}}</strong></li>
+                <li>Avatar: <strong>{{employee.avatar}}</strong></li>
+                <li>Name: <strong>{{employee.name}}</strong></li>
+                <li>Created At: <strong>{{employee.createdAt}}</strong></li>
+            }
+        }
+    </ul>
+}
