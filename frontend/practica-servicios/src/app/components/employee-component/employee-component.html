@@ -1,8 +1,9 @@
+<div class = "cabecera">
+    <h1> EMPLOYEES </h1>
+    <input type="text" [(ngModel)]="searchId" placeholder = "Buscar por Id">
+    <button (click)="agregarEmpleado()" class = "boton-post"> Agregar empleado </button>
+</div>
 <div class = "contenedor">
-    <div class = "cabecera">
-        <h1> EMPLOYEES </h1>
-        <input type="text" [(ngModel)]="searchId">
-    </div>
     @if(loading){
         <div>Cargando...</div>
     }
@@ -12,23 +13,32 @@
     }
 
     @if(!loading && !error){
-        <ul>
+        <div class = "tarjetas">
             @for(employee of employees; track employee.id){
                 @if(!searchId || employee.id === searchId){
-                    <hr>
+                <div class = "tarjeta-empleado">
                     <div class = "cabecera-empleado">
                         <img [src]="employee.avatar" width="60px">
                         <h2>Id: <strong>{{employee.id}}</strong></h2>
                     </div>
-                    <li>Salary: <strong>{{employee.salary}}</strong></li>
-                    <li>Department: <strong>{{employee.department}}</strong></li>
-                    <li>Position: <strong>{{employee.position}}</strong></li>
-                    <li>Phone: <strong>{{employee.phone}}</strong></li>
-                    <li>Email: <strong>{{employee.email}}</strong></li>
-                    <li>Name: <strong>{{employee.name}}</strong></li>
-                    <li>Created At: <strong>{{employee.createdAt}}</strong></li>
+                    <div>Name: <strong>{{employee.name}}</strong></div>
+                    <div>Salary: <strong>{{employee.salary}}</strong></div>
+                    <div>Department: <strong>{{employee.department}}</strong></div>
+                    <div>Position: <strong>{{employee.position}}</strong></div>
+                    <div>Phone: <strong>{{employee.phone}}</strong></div>
+                    <div>Email: <strong>{{employee.email}}</strong></div>
+                    <div>Created At: <strong>{{employee.createdAt}}</strong></div>
+                    <div class = "botones">
+                        <button class="boton-delete" (click)="eliminarEmpleado(employee.id)">
+                            Eliminar
+                        </button>
+                        <button class="boton-put" (click)="editarEmpleado(employee.id)">
+                            Editar
+                        </button>
+                    </div>
+                </div>
                 }
             }
-        </ul>
+        </div>
     }
 </div>
